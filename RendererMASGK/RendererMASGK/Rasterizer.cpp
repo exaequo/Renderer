@@ -48,14 +48,23 @@ void Rasterizer::Triangle(const float3 & p1, const float3 & p2, const float3 & p
 				((tl2 && dx23*(y - y2) - dy23*(x - x2) >= 0) || (!tl2 && dx23*(y - y2) - dy23*(x - x2) > 0)) &&
 				((tl3 && dx31*(y - y3) - dy31*(x - x3) >= 0) || (!tl3 && dx31*(y - y3) - dy31*(x - x3) > 0)))
 			{
+				//which position on buffer
+				int n = y*buffer.height + x;
 				//baricentric
 				float
 					d1 = (dy23 * (x - x3) - dx23 * (y - y3)) * db1,
 					d2 = (dy31 * (x - x3) - dx31 * (y - y3)) * db2,
 					d3 = 1 - d1 - d2;
-				//color calculation
-				float3 color = c1 * d1 + c2 * d2 + c3 * d3;
-				buffer.SetColor(y*buffer.height + x, color.ColorARGB());
+				//checking depth
+				float depth = (d1 * p1.z + d2 * p2.z + d3 * p3.z);
+
+				if (depth < buffer.GetDepth(n))
+				{
+					//color calculations
+					float3 color = c1 * d1 + c2 * d2 + c3 * d3;
+					buffer.SetColor(n, color.ColorARGB());
+					buffer.SetDepth(n, depth);
+				}
 			}
 		}
 	}

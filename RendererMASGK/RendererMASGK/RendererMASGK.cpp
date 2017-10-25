@@ -14,8 +14,10 @@ int main()
 	rast.Triangle({ -1.f, 0.f, 0.f }, { 0.f, .75f, 0.f }, { .75f, -1.f, 0.f },
 					{ 1, 1, 0 }, { 0, 1, 1 }, { 0, 0, 1 });
 
-	rast.Triangle({ .75f, -1.f, 0.f }, { 0.f, .75f, 0.f }, {1.f, 1.f, 0.f},
+	rast.Triangle({ .75f, -1.f, 1.f }, { -1.f, .75f, -1.f }, {1.f, 1.f, 1.f},
 					{ 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 });
+	rast.Triangle({ -1.f, 0.f, 0.f }, { .75f, -1.f, 0.f }, { -1.f, -1.f, 0.f },
+					{ .2f, 0, 0 }, { 0, .1f, 0 }, { 0, 0, .1f });
 	buff.save("test.tga");
     return 0;
 }
