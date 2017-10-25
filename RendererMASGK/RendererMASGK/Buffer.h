@@ -2,15 +2,24 @@
 class Buffer
 {
 public:
-	Buffer();
+	Buffer(int width, int height, float depth);
 	~Buffer();
-	unsigned int color;
+	Buffer(Buffer&) = delete;
+	unsigned int clearColor;
 	float depth;
-	float w, h, minx, maxx, miny, maxy, len;
+	int width, height, minx, maxx, miny, maxy, len;
 
-	void SetSize();
-	void ClearColor();
+
+	void SetSize(int width, int length);
+	void ClearColor(unsigned int color);
 	void ClearDepth();
+	void SetColor(unsigned int pos, unsigned int color);
+	void SetDepth(unsigned int pos, float depth);
+	float GetDepth(unsigned int pos);
+
+protected:
+	unsigned int* colorBuffer;
+	float* depthBuffer;
 };
 
 

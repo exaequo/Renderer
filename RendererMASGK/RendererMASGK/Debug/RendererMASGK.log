@@ -3,6 +3,22 @@
   TGABuffer.cpp
   RendererMASGK.cpp
   Rasterizer.cpp
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(27): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(28): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(29): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(30): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(31): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(32): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
   Buffer.cpp
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\buffer.cpp(36): warning C4018: '>=': signed/unsigned mismatch
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\buffer.cpp(43): warning C4018: '>=': signed/unsigned mismatch
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\buffer.cpp(50): warning C4018: '>=': signed/unsigned mismatch
   Generating Code...
-  RendererMASGK.vcxproj -> C:\Users\Hubbertosky\Desktop\masgk\Renderer\RendererMASGK\Debug\RendererMASGK.exe
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\vfunctions.cpp(51): warning C4715: 'float3::operator[]': not all control paths return a value
+  RendererMASGK.vcxproj -> D:\Studia\masgk\Renderer\RendererMASGK\Debug\RendererMASGK.exe

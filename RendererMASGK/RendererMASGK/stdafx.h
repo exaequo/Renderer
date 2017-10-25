@@ -9,6 +9,7 @@
 #include "vfunctions.h"
 #include "Buffer.h"
 #include "TGABuffer.h"
+#include "Rasterizer.h"
 #include <stdio.h>
 #include <tchar.h>
 
