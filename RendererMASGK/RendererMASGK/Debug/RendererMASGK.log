@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  vfunctions.cpp
+  TGABuffer.cpp
+  RendererMASGK.cpp
+  Rasterizer.cpp
+  Buffer.cpp
+  Generating Code...
+  RendererMASGK.vcxproj -> C:\Users\Hubbertosky\Desktop\masgk\Renderer\RendererMASGK\Debug\RendererMASGK.exe
