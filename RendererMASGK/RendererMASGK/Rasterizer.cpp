@@ -23,7 +23,7 @@ void Rasterizer::Triangle(const float3 & p1, const float3 & p2, const float3 & p
 		miny = std::max(Min(y1, y2, y3), 0),
 		maxy = std::min(Max(y1, y2, y3), buffer.height - 1);
 	//constants
-	float 
+	int 
 		dx12 = x1 - x2,
 		dx23 = x2 - x3,
 		dx31 = x3 - x1,
@@ -62,7 +62,7 @@ void Rasterizer::Triangle(const float3 & p1, const float3 & p2, const float3 & p
 				{
 					//color calculations
 					float3 color = c1 * d1 + c2 * d2 + c3 * d3;
-					buffer.SetColor(n, color.ColorARGB());
+					buffer.SetColor(n, color.ColorRGB());
 					buffer.SetDepth(n, depth);
 				}
 			}

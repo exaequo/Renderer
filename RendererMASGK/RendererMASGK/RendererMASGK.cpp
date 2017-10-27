@@ -6,6 +6,7 @@
 
 int main()
 {
+	
 	TgaBuffer buff{ 512, 512 , 1.f};
 	buff.ClearColor(0x00f0f0f0); //argb
 	buff.ClearDepth();
@@ -19,6 +20,9 @@ int main()
 	rast.Triangle({ -1.f, 0.f, 0.f }, { .75f, -1.f, 0.f }, { -1.f, -1.f, 0.f },
 					{ .2f, 0, 0 }, { 0, .1f, 0 }, { 0, 0, .1f });
 	buff.save("test.tga");
+
+
+	//std::cin.get();
     return 0;
 }
 

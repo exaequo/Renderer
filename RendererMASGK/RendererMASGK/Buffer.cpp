@@ -17,7 +17,7 @@ Buffer::~Buffer()
 void Buffer::ClearColor(unsigned int color)
 {
 	clearColor = color;
-	for (int i = 0; i < len; ++i)
+	for (unsigned int i = 0; i < len; ++i)
 	{
 		colorBuffer[i] = color;
 	}
@@ -25,7 +25,7 @@ void Buffer::ClearColor(unsigned int color)
 
 void Buffer::ClearDepth()
 {
-	for (int i = 0; i < len; ++i)
+	for (unsigned int i = 0; i < len; ++i)
 	{
 		depthBuffer[i] = depth;
 	}
