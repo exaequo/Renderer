@@ -52,10 +52,13 @@ struct float4 {
 };
 
 struct float4x4 {
+	float4x4();
+	float4x4(const float4&, const float4&, const float4&, const float4&);
+	float4x4(float);
 	float4 arr[4];
 	float4& operator[](const int n);
 	const float4& operator[](const int n) const;
-
+	
 	friend std::ostream& operator<< (std::ostream& stream, const float4x4&);
 };
 

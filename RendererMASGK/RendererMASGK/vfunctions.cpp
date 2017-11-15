@@ -248,6 +248,24 @@ const float & float4::operator[](const int n) const
 	return *((&x) + n);
 }
 
+float4x4::float4x4()
+{
+	for (int i = 0; i < 4; ++i) { arr[i] = float4{}; }
+}
+
+float4x4::float4x4(const float4 &f1, const float4 &f2, const float4 &f3, const float4 &f4)
+{
+	arr[0] = f1;
+	arr[1] = f2;
+	arr[2] = f3;
+	arr[3] = f4;
+}
+
+float4x4::float4x4(float v)
+{
+	for (int i = 0; i < 4; ++i) { arr[i] = float4{ v,v,v,v }; }
+}
+
 float4 & float4x4::operator[](const int n)
 {
 	if (n > 3 || n < 0) { throw new std::exception{ "***float4x4: n too big\n" }; }

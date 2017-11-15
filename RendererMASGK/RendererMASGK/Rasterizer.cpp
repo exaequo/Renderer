@@ -9,6 +9,9 @@ Rasterizer::~Rasterizer()
 /** Draws a triangle with vertices of the specified colors*/
 void Rasterizer::Triangle(const float3 & p1, const float3 & p2, const float3 & p3, const float3 & c1, const float3 & c2, const float3 & c3)
 {
+	std::cout << "P1: " << p1 << "\n";
+	std::cout << "P2: " << p2 << "\n";
+	std::cout << "P3: " << p3 << "\n";
 	//screen point positions
 	int x1 = (p1.x + 1) * buffer.width *.5f,
 		x2 = (p2.x + 1) * buffer.width *.5f,

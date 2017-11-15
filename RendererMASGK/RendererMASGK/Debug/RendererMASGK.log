@@ -1,2 +1,5 @@
-﻿  RendererMASGK.cpp
+﻿  VertexProcesor.cpp
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\vertexprocesor.cpp(21): warning C4305: "*=": obcięcie z "double" do "float"
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\vertexprocesor.cpp(67): warning C4244: "argument": konwersja z "double" do "float", możliwa utrata danych
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\vertexprocesor.cpp(68): warning C4244: "argument": konwersja z "double" do "float", możliwa utrata danych
   RendererMASGK.vcxproj -> D:\Studia\masgk\Renderer\RendererMASGK\RendererMASGK\Debug\RendererMASGK.exe
