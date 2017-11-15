@@ -10,8 +10,10 @@
 #include "Buffer.h"
 #include "TGABuffer.h"
 #include "Rasterizer.h"
+#include "VertexProcesor.h"
 #include <stdio.h>
 #include <tchar.h>
+
 
 
 
