@@ -7,7 +7,7 @@
 int main()
 {
 	VertexProcesor vp{ 90.f, 1.f, 0.f, 10000.f,
-		{0,0,0}, {0,0,1}, {0,1,0} };
+		{0,0,0}, {0,0,-1}, {0,1,0} };
 	TgaBuffer buff{ 512, 512 , 1000.f };
 	buff.ClearColor(0x00f0f0f0); //argb
 	buff.ClearDepth();
@@ -24,17 +24,38 @@ int main()
 	{ 1, 1, 0 }, { 0, 1, 1 }, { 0, 0, 1 });*/
 
 	float3 f3 = { -1.f, 0.f, 4.f };
+	
+	////
+	//vp.multByScale({ 1.25f, 1.25f,1.f });
 
-	rast.Triangle(vp.tr({ 0.75f, -1.f, 4.f }), vp.tr({ 0.f, 0.75f, 4.f }), vp.tr({ -1.f, 0.f, 4.f }),
+	std::cout << vp.obj2world << "\n";
+	rast.Triangle(vp.tr({ -1.f, 0.f, -1.f }), vp.tr({ 0.f, 0.75f, -1.f }), vp.tr({ 0.75f, -1.f, -1.f }),
+	{ 1, 0, 0 }, { 1, 0, 0 }, { 1, 0, 0 });
+	
+	//vp.multByRotation(30, { 0,0,-1 });
+	//vp.multByTranslation({ 0.f,0.5f,-0.5f });
+	vp.multByScale({ 2.f, 1.f,1.f });
+
+	std::cout << vp.obj2world << "\n";
+
+
+	//vp.multByRotation(30, { 0,0,-1 });
+
+	rast.Triangle(vp.tr({ -1.f, 0.f, -1.f }), vp.tr({ 0.f, 0.75f, -1.f }), vp.tr({ 0.75f, -1.f, -1.f }),
 	{ 1, 1, 0 }, { 0, 1, 1 }, { 0, 0, 1 });
 	
-	buff.save("test1.tga");
+	vp.multByTranslation({ 0.f,0.5f,-900 });
+
+	rast.Triangle(vp.tr({ -1.f, 0.f, -1.f }), vp.tr({ 0.f, 0.75f, -1.f }), vp.tr({ 0.75f, -1.f, -1.f }),
+	{ 1, 1, 0 }, { 1, 1, 0 }, { 1, 1, 0 });
+
+	buff.save("test4.tga");
 
 	std::cout << vp.obj2world <<"\n";
-	std::cout << vp.world2view << "\n";
+	/*std::cout << vp.world2view << "\n";
 	std::cout << vp.view2proj << "\n";
 
-	std::cout << mul(vp.view2proj, vp.world2view) << "\n";
+	std::cout << mul(vp.view2proj, vp.world2view) << "\n";*/
 	//float4x4 m{
 	//	float4{ 1, 0, 0, 1.5f },
 	//	float4{ 0, 1, 0, 1 },

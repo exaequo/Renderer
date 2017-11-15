@@ -37,17 +37,23 @@ void VertexProcesor::setLookat(const float3 & eye, const float3 & center, const 
 	world2view[0] = float4{ s[0], u[0], -f[0], 0 };
 	world2view[1] = float4{ s[1], u[1], -f[1], 0 };
 	world2view[2] = float4{ s[2], u[2], -f[2], 0 };
-	world2view[3] = float4{ eye*(-1), 1 };
+	world2view[3] = float4{ -1 * eye, 1 };
 }
 
 void VertexProcesor::multByTranslation(const float3 & v)
 {
 	float4x4 m{
-		float4{1, 0, 0, 0},
-		float4{0, 1, 0, 0},
-		float4{0, 0, 1, 0},
-		float4{v[0], v[1], v[2], 1}
+		float4{1, 0, 0, v[0]},
+		float4{0, 1, 0, v[1]},
+		float4{0, 0, 1, v[2]},
+		float4{0, 0, 0, 1}
 	};
+	/*float4x4 m{
+		float4{ 1, 0, 0, 0 },
+		float4{ 0, 1, 0, 0 },
+		float4{ 0, 0, 1, 0 },
+		float4{ v, 1 }
+	};*/
 	obj2world = mul(m, obj2world);
 }
 

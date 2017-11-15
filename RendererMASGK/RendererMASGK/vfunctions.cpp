@@ -134,6 +134,11 @@ float3 operator-(const float3 & lhs, const float3 & rhs)
 	};
 }
 
+float3 operator*(const float lhs, const float3 & rhs)
+{
+	return float3{ rhs.x * lhs, rhs.y * lhs, rhs.z * lhs };
+}
+
 float3 operator*(const float3 & lhs, const float rhs)
 {
 	float3 res{ lhs.x, lhs.y, lhs.z };

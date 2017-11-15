@@ -26,6 +26,7 @@ struct float3 {
 	const float& operator[](const int n) const;
 	
 	friend float3 operator-(const float3& lhs, const float3 & rhs);
+	friend float3 operator*(const float lhs, const float3 & rhs);
 	friend float3 operator*(const float3& lhs, const float rhs);
 	friend std::ostream& operator<< (std::ostream& stream, const float3&);
 };
