@@ -6,7 +6,7 @@
 
 int main()
 {
-	VertexProcesor vp{ 45.f, 2.f, 0.f, 10000.f,
+	VertexProcesor vp{ 90.f, 1.f, 0.f, 10000.f,
 		{0,0,0}, {0,0,1}, {0,1,0} };
 	TgaBuffer buff{ 512, 512 , 1000.f };
 	buff.ClearColor(0x00f0f0f0); //argb
@@ -28,7 +28,7 @@ int main()
 	rast.Triangle(vp.tr({ 0.75f, -1.f, 4.f }), vp.tr({ 0.f, 0.75f, 4.f }), vp.tr({ -1.f, 0.f, 4.f }),
 	{ 1, 1, 0 }, { 0, 1, 1 }, { 0, 0, 1 });
 	
-	buff.save("test.tga");
+	buff.save("test1.tga");
 
 	std::cout << vp.obj2world <<"\n";
 	std::cout << vp.world2view << "\n";
