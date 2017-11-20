@@ -72,6 +72,12 @@ float3 & float3::operator*(const float value)
 	return *this;
 }
 
+float3 & float3::operator/(const float r)
+{
+	for (int i = 0; i < 3; ++i) { (*this)[i] /= r; }
+	return (*this);
+}
+
 float3 & float3::operator*(const float3 & other)
 {
 	this->x *= other.x;
@@ -174,14 +180,26 @@ float4x4 mul(const float4x4 & l, const float4x4 & r)
 {
 	float4x4 result{};
 
-	for (int i = 0; i < 4; ++i)
+	/*for (int i = 0; i < 4; ++i)
 	{
 		for (int j = 0; j < 4; ++j)
 		{
 			result[i][j] = 0;
 			for (int iter = 0; iter < 4; ++iter)
 			{
-				result[i][j] += l[i][iter] * r[iter][j];
+				result[i][j] += l[iter][i] * r[j][iter];
+			}
+		}
+	}*/
+
+	for (int i = 0; i < 4; ++i)
+	{
+		for (int j = 0; j < 4; ++j)
+		{
+			result[i][j] = 0;
+			for (int k = 0; k < 4; ++k)
+			{
+				result[i][j] += l[i][k] * r[k][j];
 			}
 		}
 	}

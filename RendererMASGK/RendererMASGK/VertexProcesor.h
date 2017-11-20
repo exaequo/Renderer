@@ -5,6 +5,8 @@ public:
 	float4x4 obj2world;
 	float4x4 world2view;
 	float4x4 view2proj;
+	float4x4 obj2view;
+	float4x4 obj2proj;
 
 	float3 tr(const float3& v);
 	void lt();
@@ -18,5 +20,7 @@ public:
 	VertexProcesor(float fovy, float aspect, float near, float far, 
 		const float3& eye, const float3& center, const float3& up);
 	~VertexProcesor();
+
+	void calculateMatrices();
 };
 

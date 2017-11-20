@@ -9,6 +9,8 @@ Rasterizer::~Rasterizer()
 /** Draws a triangle with vertices of the specified colors*/
 void Rasterizer::Triangle(const float3 & p1, const float3 & p2, const float3 & p3, const float3 & c1, const float3 & c2, const float3 & c3)
 {
+
+	std::cout << " *DRAWING TRIANGLE*\n";
 	std::cout << "P1: " << p1 << "\n";
 	std::cout << "P2: " << p2 << "\n";
 	std::cout << "P3: " << p3 << "\n";
@@ -52,7 +54,7 @@ void Rasterizer::Triangle(const float3 & p1, const float3 & p2, const float3 & p
 				((tl3 && dx31*(y - y3) - dy31*(x - x3) >= 0) || (!tl3 && dx31*(y - y3) - dy31*(x - x3) > 0)))
 			{
 				//which position on buffer
-				int n = y*buffer.height + x;
+				int n = y*buffer.width + x;
 				//baricentric
 				float
 					d1 = (dy23 * (x - x3) - dx23 * (y - y3)) * db1,
