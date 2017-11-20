@@ -131,10 +131,17 @@ void VertexProcesor::multByRotation(const float a, const float3 & vec)
 	float	s = sinf(a * PI / 180.f),
 			c = cosf(a * PI / 180.f);
 	auto v = vec.getNormalized();
-	float4x4 m{
+	/*float4x4 m{
 		float4{ v.x*v.x*(1-c) + c,	 v.y*v.x*(1 - c) + v.z*s, v.x*v.z*(1 - c) - v.y*s, 0 },
 		float4{ v.x*v.y*(1-c)-v.z*s, v.y*v.y*(1 - c) + c,	  v.y*v.z*(1 - c) + v.x*s, 0 },
 		float4{ v.x*v.z*(1-c)+v.y*s, v.y*v.z*(1 - c) - v.x*s, v.z*v.z*(1-c)+c,		   0 },
+		float4{ 0, 0, 0, 1 }
+	};*/
+
+	float4x4 m{
+		float4{ v.x*v.x*(1 - c) + c,	 v.x*v.y*(1 - c) - v.z*s, v.x*v.z*(1 - c) + v.y*s, 0 },
+		float4{ v.x*v.y*(1 - c) + v.z*s, v.y*v.y*(1 - c) + c,	  v.y*v.z*(1 - c) - v.x*s, 0 },
+		float4{ v.x*v.z*(1 - c) - v.y*s, v.y*v.z*(1 - c) + v.x*s, v.z*v.z*(1 - c) + c,	   0 },
 		float4{ 0, 0, 0, 1 }
 	};
 	std::cout << "m:\n" << m << "\n";

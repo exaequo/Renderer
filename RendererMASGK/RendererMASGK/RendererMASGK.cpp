@@ -30,8 +30,8 @@ int main()
 	int width = 1280;
 	int height = 720;
 
-	TgaBuffer buffer{ width, height, 10000.f };
-	buffer.ClearColor(0x00FFFFFF);
+	TgaBuffer buffer{ width, height, 10.f };
+	buffer.ClearColor(0x00ffffff);
 	buffer.ClearDepth();
 
 	Rasterizer rasterizer(buffer);
@@ -39,22 +39,27 @@ int main()
 	VertexProcesor vp{ 60, static_cast<float>(width) / height, 0.3f, 100.f,
 			{0,0,4}, {0,0,0}, {0,1,0} };
 
-	vp.multByScale({ 2.f, 2.f, 1.f });
+	vp.multByScale({ 2.f, 2.f, 2.f });
+	vp.multByTranslation({ 0.f, -0.f, 0.f });
 	vp.multByRotation(15.f, { 0,0,1 });
-	vp.multByTranslation({ 0.f, -0.5f, 0.f });
+	
 
 
 	rasterizer.Triangle(vp.tr({ -0.5f, -0.5f, 0.f }), vp.tr({ 0.f, 0.5f, 0.f }), vp.tr({ 0.5f, -0.5f, 0.f }),
-		{ 1,0,0 }, { 0,1,0 }, { 0,0,1 });
+		{ 1,0,0 }, { 1,0,0 }, { 1,0,0 });
+	rasterizer.Triangle(vp.tr({ 0.5f, -0.5f, 0.f }), vp.tr({ 0.f, 0.5f, 0.f }), vp.tr({ 0.25f, 0.75f, -0.5f }),
+		{ 1,0,0 }, { 1,0,0 }, { 0,0,1 });
+	rasterizer.Triangle(vp.tr({ 0.5f, -0.5f, 0.f }), vp.tr({ 0.25f, 0.75f, -0.5f }), vp.tr({ 1.f, 0.5f, 0.f }),
+		{ 1,0,0 }, { 0,0,1 }, { 1,0,0 });
 
-	vp.multByTranslation({ -1.f, 0.75f, -2.f });
+	/*vp.multByTranslation({ 0.f, 0.25f, 1.f });
 	vp.multByRotation(30.f, { 0,0,1 });
 	rasterizer.Triangle(vp.tr({ -0.5f, -0.5f, 0.f }), vp.tr({ 0.f, 0.5f, 0.f }), vp.tr({ 0.5f, -0.5f, 0.f }),
-	{ 1,0,0 }, { 1,0,0 }, { 1,0,0 });
+		{ 1,0,0 }, { 1,0,0 }, { 1,0,0 });*/
 
-	buffer.save("tst1.tga");
+	buffer.save("test.tga");
 
-	std::cin.get();
+	//std::cin.get();
     return 0;
 }
 

@@ -1,8 +1,2 @@
-﻿  Rasterizer.cpp
-d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(18): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(19): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(20): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(21): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(22): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-d:\studia\masgk\renderer\renderermasgk\renderermasgk\rasterizer.cpp(23): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+﻿  RendererMASGK.cpp
   RendererMASGK.vcxproj -> D:\Studia\masgk\Renderer\RendererMASGK\RendererMASGK\Debug\RendererMASGK.exe
