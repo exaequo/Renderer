@@ -21,7 +21,7 @@ VertexProcesor::~VertexProcesor()
 
 }
 
-float3 VertexProcesor::tr(const float3 & v)
+float3 VertexProcesor::tr(const float3 & v) const
 {
 	/*float4x4 obj2view = mul(world2view, obj2world);
 	float4 res = mul(obj2view, float4{ v, 1 });
@@ -44,7 +44,7 @@ float3 VertexProcesor::tr(const float3 & v)
 
 void VertexProcesor::setPerspective(float fovy, float aspect, float near, float far)
 {
-	fovy *= PI / 360.f;
+	fovy *= (float)PI / 360.f;
 	float f = cosf(fovy) / sinf(fovy);
 	/*
 	view2proj[0] = float4{ f / aspect,	0, 0, 0 };
@@ -128,8 +128,8 @@ void VertexProcesor::multByScale(const float3 & v)
 
 void VertexProcesor::multByRotation(const float a, const float3 & vec)
 {
-	float	s = sinf(a * PI / 180.f),
-			c = cosf(a * PI / 180.f);
+	float	s = sinf(a * (float)PI / 180.f),
+			c = cosf(a * (float)PI / 180.f);
 	auto v = vec.getNormalized();
 	/*float4x4 m{
 		float4{ v.x*v.x*(1-c) + c,	 v.y*v.x*(1 - c) + v.z*s, v.x*v.z*(1 - c) - v.y*s, 0 },

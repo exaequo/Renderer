@@ -300,3 +300,15 @@ const float4 & float4x4::operator[](const int n) const
 	if (n > 3 || n < 0) { throw new std::exception{ "***float4x4: n too big\n" }; }
 	return arr[n];
 }
+
+int & int3::operator[](const int n)
+{
+	if (n > 3 || n < 0) { throw new std::exception{ "***int3: n wrong\n" }; }
+	return *(&a + n);
+}
+
+const int & int3::operator[](const int n) const
+{
+	if (n > 3 || n < 0) { throw new std::exception{ "***int3: n wrong\n" }; }
+	return *(&a + n);
+}

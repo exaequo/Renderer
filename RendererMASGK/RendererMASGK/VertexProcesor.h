@@ -8,7 +8,7 @@ public:
 	float4x4 obj2view;
 	float4x4 obj2proj;
 
-	float3 tr(const float3& v);
+	float3 tr(const float3& v) const;
 	void lt();
 
 	void setPerspective(float fovy, float aspect, float near, float far);

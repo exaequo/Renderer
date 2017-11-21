@@ -74,3 +74,10 @@ void Rasterizer::Triangle(const float3 & p1, const float3 & p2, const float3 & p
 		}
 	}
 }
+
+void Rasterizer::Triangle(const Vertex & v1, const Vertex & v2, const Vertex & v3, const Material & mat)
+{
+	Triangle(v1.getPosition(), v2.getPosition(), v3.getPosition(),
+		mat.color, mat.color, mat.color);
+}
+

@@ -11,6 +11,10 @@
 #include "TGABuffer.h"
 #include "Rasterizer.h"
 #include "VertexProcesor.h"
+#include "Vertex.h"
+#include "Mesh.h"
+#include "Material.h"
+#include "SimpleTriangle.h"
 #include <stdio.h>
 #include <tchar.h>
 

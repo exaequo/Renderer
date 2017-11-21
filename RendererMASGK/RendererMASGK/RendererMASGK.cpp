@@ -30,7 +30,7 @@ int main()
 	int width = 1280;
 	int height = 720;
 
-	TgaBuffer buffer{ width, height, 10.f };
+	TgaBuffer buffer{ width, height, 10000.f };
 	buffer.ClearColor(0x00ffffff);
 	buffer.ClearDepth();
 
@@ -43,14 +43,17 @@ int main()
 	vp.multByTranslation({ 0.f, -0.f, 0.f });
 	vp.multByRotation(15.f, { 0,0,1 });
 	
+	SimpleTriangle obj{ { -0.5f, -0.5f, 0.f },{ 0.f, 0.5f, 0.f },{ 0.5f, -0.5f, 0.f } };
+	obj.getMaterial().color = float3{ 0,1,0 };
+	obj.draw(rasterizer, vp);
 
-
+	vp.multByTranslation({ 0.5f, -0.f, 0.1f });
 	rasterizer.Triangle(vp.tr({ -0.5f, -0.5f, 0.f }), vp.tr({ 0.f, 0.5f, 0.f }), vp.tr({ 0.5f, -0.5f, 0.f }),
 		{ 1,0,0 }, { 1,0,0 }, { 1,0,0 });
-	rasterizer.Triangle(vp.tr({ 0.5f, -0.5f, 0.f }), vp.tr({ 0.f, 0.5f, 0.f }), vp.tr({ 0.25f, 0.75f, -0.5f }),
+	/*rasterizer.Triangle(vp.tr({ 0.5f, -0.5f, 0.f }), vp.tr({ 0.f, 0.5f, 0.f }), vp.tr({ 0.25f, 0.75f, -0.5f }),
 		{ 1,0,0 }, { 1,0,0 }, { 0,0,1 });
 	rasterizer.Triangle(vp.tr({ 0.5f, -0.5f, 0.f }), vp.tr({ 0.25f, 0.75f, -0.5f }), vp.tr({ 1.f, 0.5f, 0.f }),
-		{ 1,0,0 }, { 0,0,1 }, { 1,0,0 });
+		{ 1,0,0 }, { 0,0,1 }, { 1,0,0 });*/
 
 	/*vp.multByTranslation({ 0.f, 0.25f, 1.f });
 	vp.multByRotation(30.f, { 0,0,1 });

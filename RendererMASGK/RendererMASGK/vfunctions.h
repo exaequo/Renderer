@@ -11,7 +11,7 @@ struct float3 {
 		struct { float x, y, z; };
 	};
 	unsigned int ColorRGB() const;
-
+	
 	float Dot(const float3& other);
 	float3 Cross(const float3& other);
 	float magnitude() const;
@@ -30,7 +30,20 @@ struct float3 {
 	friend float3 operator*(const float lhs, const float3 & rhs);
 	friend float3 operator*(const float3& lhs, const float rhs);
 	friend std::ostream& operator<< (std::ostream& stream, const float3&);
+
+	
 };
+
+typedef float3 Color;
+
+struct int3 {
+	int a, b, c;
+	int& operator[](const int n);
+	const int& operator[](const int n) const;
+
+	explicit operator float3() const { return float3{ (float)a,(float)b,(float)c }; }
+};
+
 struct float4 {
 	union {
 		struct { float r, g, b, a; };
