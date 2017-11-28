@@ -10,10 +10,10 @@ Rasterizer::~Rasterizer()
 void Rasterizer::Triangle(const float3 & p1, const float3 & p2, const float3 & p3, const float3 & c1, const float3 & c2, const float3 & c3)
 {
 
-	std::cout << " *DRAWING TRIANGLE*\n";
-	std::cout << "P1: " << p1 << "\n";
-	std::cout << "P2: " << p2 << "\n";
-	std::cout << "P3: " << p3 << "\n";
+	//std::cout << " *DRAWING TRIANGLE*\n";
+	//std::cout << "P1: " << p1 << "\n";
+	//std::cout << "P2: " << p2 << "\n";
+	//std::cout << "P3: " << p3 << "\n";
 	//screen point positions
 	int x1 = (p1.x + 1) * buffer.width *.5f,
 		x2 = (p2.x + 1) * buffer.width *.5f,
@@ -63,7 +63,7 @@ void Rasterizer::Triangle(const float3 & p1, const float3 & p2, const float3 & p
 				//checking depth
 				float depth = (d1 * p1.z + d2 * p2.z + d3 * p3.z);
 
-				if (depth < buffer.GetDepth(n))
+				if (depth >= 0 && depth < buffer.GetDepth(n))
 				{
 					//color calculations
 					float3 color = c1 * d1 + c2 * d2 + c3 * d3;
@@ -78,6 +78,6 @@ void Rasterizer::Triangle(const float3 & p1, const float3 & p2, const float3 & p
 void Rasterizer::Triangle(const Vertex & v1, const Vertex & v2, const Vertex & v3, const Material & mat)
 {
 	Triangle(v1.getPosition(), v2.getPosition(), v3.getPosition(),
-		mat.color, mat.color, mat.color);
+		mat.getColorDiffuse(), mat.getColorDiffuse(), mat.getColorDiffuse());
 }
 

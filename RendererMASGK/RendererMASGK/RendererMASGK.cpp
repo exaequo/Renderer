@@ -39,26 +39,29 @@ int main()
 	VertexProcesor vp{ 60, static_cast<float>(width) / height, 0.3f, 100.f,
 			{0,0,4}, {0,0,0}, {0,1,0} };
 
+/*
 	vp.multByScale({ 2.f, 2.f, 2.f });
 	vp.multByTranslation({ 0.f, -0.f, 0.f });
 	vp.multByRotation(15.f, { 0,0,1 });
 	
 	SimpleTriangle obj{ { -0.5f, -0.5f, 0.f },{ 0.f, 0.5f, 0.f },{ 0.5f, -0.5f, 0.f } };
-	obj.getMaterial().color = float3{ 0,1,0 };
+	obj.getMaterial().ColorDiffuse() = float3{ 0,1,0 };
 	obj.draw(rasterizer, vp);
 
 	vp.multByTranslation({ 0.5f, -0.f, 0.1f });
 	rasterizer.Triangle(vp.tr({ -0.5f, -0.5f, 0.f }), vp.tr({ 0.f, 0.5f, 0.f }), vp.tr({ 0.5f, -0.5f, 0.f }),
-		{ 1,0,0 }, { 1,0,0 }, { 1,0,0 });
-	/*rasterizer.Triangle(vp.tr({ 0.5f, -0.5f, 0.f }), vp.tr({ 0.f, 0.5f, 0.f }), vp.tr({ 0.25f, 0.75f, -0.5f }),
-		{ 1,0,0 }, { 1,0,0 }, { 0,0,1 });
-	rasterizer.Triangle(vp.tr({ 0.5f, -0.5f, 0.f }), vp.tr({ 0.25f, 0.75f, -0.5f }), vp.tr({ 1.f, 0.5f, 0.f }),
-		{ 1,0,0 }, { 0,0,1 }, { 1,0,0 });*/
-
-	/*vp.multByTranslation({ 0.f, 0.25f, 1.f });
-	vp.multByRotation(30.f, { 0,0,1 });
-	rasterizer.Triangle(vp.tr({ -0.5f, -0.5f, 0.f }), vp.tr({ 0.f, 0.5f, 0.f }), vp.tr({ 0.5f, -0.5f, 0.f }),
 		{ 1,0,0 }, { 1,0,0 }, { 1,0,0 });*/
+	
+	vp.multByTranslation({ 0,0,-5.f });
+	vp.multByScale({ .5f, .5f, .5f });
+	vp.multByRotation(45.f, { 1, 0, 0 });
+
+	/*SimpleTriangle obj{ { -0.5f, -0.5f, 0.f },{ 0.f, 0.5f, 0.f },{ 0.5f, -0.5f, 0.f } };
+	obj.getMaterial().ColorDiffuse() = float3{ 0,1,0 };
+	obj.draw(rasterizer, vp);*/
+
+	OBJMesh objM{ "sphere" };
+	objM.draw(rasterizer, vp);
 
 	buffer.save("test.tga");
 

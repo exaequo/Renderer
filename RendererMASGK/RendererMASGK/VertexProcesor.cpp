@@ -31,9 +31,9 @@ float3 VertexProcesor::tr(const float3 & v) const
 	//rendering chaining[View To Projection]x[World To View]x[Model to World]
 	float4 result = mul(obj2proj, { v, 1 });
 
-	std::cout << "V.w: " << result.w << "\n";
+	/*std::cout << "V.w: " << result.w << "\n";
 
-	std::cout << "1: " << obj2proj << "\n";
+	std::cout << "1: " << obj2proj << "\n";*/
 	//std::cout << "2: " << world2view << "\n";
 	//std::cout << "3: " << obj2world << "\n";
 
@@ -59,7 +59,7 @@ void VertexProcesor::setPerspective(float fovy, float aspect, float near, float 
 
 	calculateMatrices();
 
-	std::cout << "view2proj:\n" << view2proj << "\n";
+	//std::cout << "view2proj:\n" << view2proj << "\n";
 }
 
 void VertexProcesor::setLookat(const float3 & eye, const float3 & center, const float3 & upVector)
@@ -92,7 +92,7 @@ void VertexProcesor::setLookat(const float3 & eye, const float3 & center, const 
 
 	calculateMatrices();
 
-	std::cout << "world2view:\n" << world2view << "\n";
+	//std::cout << "world2view:\n" << world2view << "\n";
 }
 
 void VertexProcesor::multByTranslation(const float3 & v)
@@ -144,7 +144,7 @@ void VertexProcesor::multByRotation(const float a, const float3 & vec)
 		float4{ v.x*v.z*(1 - c) - v.y*s, v.y*v.z*(1 - c) + v.x*s, v.z*v.z*(1 - c) + c,	   0 },
 		float4{ 0, 0, 0, 1 }
 	};
-	std::cout << "m:\n" << m << "\n";
+	//std::cout << "m:\n" << m << "\n";
 
 	obj2world = mul(obj2world, m);
 	calculateMatrices();

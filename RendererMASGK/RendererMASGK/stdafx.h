@@ -15,6 +15,7 @@
 #include "Mesh.h"
 #include "Material.h"
 #include "SimpleTriangle.h"
+#include "OBJMesh.h"
 #include <stdio.h>
 #include <tchar.h>
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include <vector>
 #ifndef PI
 #define PI (3.14159265358979323846)
 #endif
@@ -88,3 +88,5 @@ float4 operator*(const float4& lhs, const float rhs);
 
 float4x4 mul(const float4x4& l, const float4x4& r);
 float4 mul(const float4x4& l, const float4& r);
+
+std::vector<std::string> divideLine(const std::string & str, const char divider);

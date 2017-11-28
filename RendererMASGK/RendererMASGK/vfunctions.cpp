@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "vfunctions.h"
 #include <algorithm>
+#include <sstream>
 
 unsigned int float3::ColorRGB() const
 {
@@ -217,6 +218,18 @@ float4 mul(const float4x4 & l, const float4 & r)
 		{
 			result[i] += l[i][j] * r[j];
 		}
+	}
+	return result;
+}
+
+std::vector<std::string> divideLine(const std::string & str, const char divider)
+{
+	std::vector<std::string> result{};
+	std::stringstream ss(str);
+	std::string token;
+	while (getline(ss, token, divider))
+	{
+		result.push_back(token);
 	}
 	return result;
 }
