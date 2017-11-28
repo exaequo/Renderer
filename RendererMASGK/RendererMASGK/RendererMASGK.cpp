@@ -65,7 +65,7 @@ int main()
 
 	buffer.save("test.tga");
 
-	//std::cin.get();
+	std::cin.get();
     return 0;
 }
 

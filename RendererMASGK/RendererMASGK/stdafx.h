@@ -16,6 +16,7 @@
 #include "Material.h"
 #include "SimpleTriangle.h"
 #include "OBJMesh.h"
+#include "Texture.h"
 #include <stdio.h>
 #include <tchar.h>
 

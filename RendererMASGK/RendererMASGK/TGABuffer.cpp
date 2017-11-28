@@ -30,3 +30,10 @@ bool TgaBuffer::save(const std::string filename) const
 
 	return true;
 }
+
+bool TgaBuffer::loadTexture(const std::string & name)
+{
+	return false;
+}
+
+

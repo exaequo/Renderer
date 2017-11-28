@@ -10,8 +10,8 @@ Buffer::Buffer(int bufferWidth, int bufferHeight, float bufferDepth) : width{ bu
 
 Buffer::~Buffer()
 {
-	delete colorBuffer;
-	delete depthBuffer;
+	delete[] colorBuffer;
+	delete[] depthBuffer;
 }
 
 void Buffer::ClearColor(unsigned int color)
