@@ -222,6 +222,15 @@ float4 mul(const float4x4 & l, const float4 & r)
 	return result;
 }
 
+float3 createColor(const unsigned int c)
+{
+	return float3{ 
+		(float)((c >> 16) % 256) / 256.f, 
+		(float)((c >> 8) % 256) / 256.f,
+		(float)(c % 256) / 256.f
+	};
+}
+
 std::vector<std::string> divideLine(const std::string & str, const char divider)
 {
 	std::vector<std::string> result{};

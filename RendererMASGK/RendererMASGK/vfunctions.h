@@ -11,7 +11,7 @@ struct float3 {
 		struct { float x, y, z; };
 	};
 	unsigned int ColorRGB() const;
-	
+		
 	float Dot(const float3& other);
 	float3 Cross(const float3& other);
 	float magnitude() const;
@@ -88,5 +88,7 @@ float4 operator*(const float4& lhs, const float rhs);
 
 float4x4 mul(const float4x4& l, const float4x4& r);
 float4 mul(const float4x4& l, const float4& r);
+float3 createColor(const unsigned int);
+
 
 std::vector<std::string> divideLine(const std::string & str, const char divider);
