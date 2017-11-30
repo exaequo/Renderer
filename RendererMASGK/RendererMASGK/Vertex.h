@@ -7,8 +7,9 @@ public:
 	Vertex(const float3& position, const float3& normal, const float3& texCoord) : position{ position }, normal{ normal }, texCoord{ texCoord } {}
 	~Vertex();
 
-	float3 getPosition() const;
-	float3 getNormal() const;
+	const float3& getPosition() const;
+	const float3& getTexCoord() const;
+	const float3& getNormal() const;
 private:
 	float3 position;
 	float3 normal;

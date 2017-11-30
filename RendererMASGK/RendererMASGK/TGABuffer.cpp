@@ -4,6 +4,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
 
+//std::map<std::string, class Texture> TgaBuffer::textures = std::map<std::string, class Texture>{};
+//std::map<int, std::string> TgaBuffer::materialsToTextureNames = std::map<int, std::string>{};
+
 TgaBuffer::~TgaBuffer()
 {
 }
@@ -51,16 +54,21 @@ bool TgaBuffer::loadTexture(const std::string& filename, const std::string& text
 	
 	fread(texBuffer, sizeof(unsigned int), len, f);
 	
-	Texture txt{ width, height };
+	Texture *txt = new Texture{ width, height };
 	for (int i = 0; i < len; ++i)
 	{
-		txt[i] = createColor(texBuffer[i]);
+		(*txt)[i] = createColor(texBuffer[i]);
 	}
 	
-	textures[textureName] = txt;
+	ObjectHolder::Instance().textures[textureName] = txt;
 
 	fclose(f);
-	
+
+	return true;
 }
+
+
+
+
 
 

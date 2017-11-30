@@ -148,6 +148,7 @@
     <ClInclude Include="Buffer.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="ObjectHolder.h" />
     <ClInclude Include="OBJMesh.h" />
     <ClInclude Include="Rasterizer.h" />
     <ClInclude Include="SimpleTriangle.h" />
@@ -163,6 +164,7 @@
     <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="ObjectHolder.cpp" />
     <ClCompile Include="OBJMesh.cpp" />
     <ClCompile Include="Rasterizer.cpp" />
     <ClCompile Include="RendererMASGK.cpp" />

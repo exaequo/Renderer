@@ -6,12 +6,17 @@ Vertex::~Vertex()
 {
 }
 
-float3 Vertex::getPosition() const
+const float3 & Vertex::getPosition() const
 {
 	return position;
 }
 
-float3 Vertex::getNormal() const
+const float3 & Vertex::getTexCoord() const
+{
+	return texCoord;
+}
+
+const float3 & Vertex::getNormal() const
 {
 	return normal;
 }

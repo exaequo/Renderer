@@ -1,33 +1,7 @@
-﻿  stdafx.cpp
-  Buffer.cpp
-Buffer.cpp(20): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-Buffer.cpp(28): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-Buffer.cpp(36): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
-Buffer.cpp(43): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
-Buffer.cpp(50): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
-  Material.cpp
-  Mesh.cpp
-  OBJMesh.cpp
-OBJMesh.cpp(24): warning C4101: "vectorValue": lokalna zmienna, do której nie istnieje odwołanie
-  Rasterizer.cpp
-Rasterizer.cpp(18): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-Rasterizer.cpp(19): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-Rasterizer.cpp(20): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-Rasterizer.cpp(21): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-Rasterizer.cpp(22): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-Rasterizer.cpp(23): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-  RendererMASGK.cpp
-  SimpleTriangle.cpp
-  TGABuffer.cpp
-  Texture.cpp
-Texture.cpp(32): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
-Texture.cpp(39): warning C4018: ">=": niezgodność typu ze znakiem/bez znaku
-  Vertex.cpp
-  VertexProcesor.cpp
-  vfunctions.cpp
+﻿  SimpleTriangle.cpp
   Trwa generowanie kodu
-  68 of 828 functions ( 8.2%) were compiled, the rest were copied from previous compilation.
-    3 functions were new in current compilation
-    53 functions had inline decision re-evaluated but remain unchanged
+  4 of 825 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
   RendererMASGK.vcxproj -> D:\Studia\masgk\Renderer\RendererMASGK\RendererMASGK\x64\Release\RendererMASGK.exe

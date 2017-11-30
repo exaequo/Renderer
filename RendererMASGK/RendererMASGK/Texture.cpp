@@ -36,8 +36,16 @@ float3 & Texture::operator[](unsigned int at)
 
 const float3 & Texture::operator[](unsigned int at) const
 {
-	if (at >= size || at < 0) { throw std::exception("Texture: array out of bounds"); }
-	
+	if (at >= size || at < 0) { //throw std::exception("Texture: array out of bounds"); }
+		return { 0,0,0 };
+	}
+
 	return vec[at];
+}
+
+float3 Texture::getColor(const float3 & coord) const
+{
+	int i = (int)(coord.x * width) + (int)(coord.y * height)*width;
+	return (*this)[i];
 }
 

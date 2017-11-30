@@ -11,9 +11,12 @@ public:
 	~TgaBuffer();
 
 	bool save(const std::string name) const;
-	bool loadTexture(const std::string& filename, const std::string& textureName);
-
-private:
-	std::map<std::string, class Texture> textures;
+	static bool loadTexture(const std::string& filename, const std::string& textureName);
+	
+	
+	//static void changeMaterialToTextureConnection(const int materialID, const std::string& texID);
+//private:
+	
+	//static std::map<int, std::string> materialsToTextureNames;
 };
 

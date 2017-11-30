@@ -8,6 +8,7 @@ public:
 	~Texture();
 	float3& operator[](unsigned int);
 	const float3& operator[](unsigned int) const;
+	float3 getColor(const float3& coord) const;
 
 private:
 	int width;

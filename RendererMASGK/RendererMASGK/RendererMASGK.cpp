@@ -10,7 +10,7 @@ int main()
 	int height = 720;
 
 	TgaBuffer buffer{ width, height, 10000.f };
-	buffer.ClearColor(0x00ffffff);
+	buffer.ClearColor(0x00efefef);
 	buffer.ClearDepth();
 
 	Rasterizer rasterizer(buffer);
@@ -26,21 +26,33 @@ int main()
 	obj.getMaterial().ColorDiffuse() = float3{ 0,1,0 };
 	obj.draw(rasterizer, vp);*/
 
+	OBJMesh objM2{ "sphereTEX" };
+
 	OBJMesh objM{ "sphere" };
 	objM.draw(rasterizer, vp);
 
 	//vp.multByRotation(-45.f, { 1, 0, 0 });
 	
+	std::string texName = "tst";
+	if (!buffer.loadTexture("wall.tga", texName))
+	{
+		std::cout << "Couldn't load tex\n";
+	}
 
-	buffer.loadTexture("test1.tga", "test");
-	objM.getMaterial().MainTextureID() = "test";
+	for (Material *mat : ObjectHolder::Instance().materials)
+	{
+		std::cout << "Mater: " << mat->ColorAmbient() << "\n";
+	}
+	ObjectHolder::Instance().materials[0]->setTexture(ObjectHolder::Instance().getTexture(texName));
 
+	//auto *tex = TgaBuffer::getTexture(texName);
+	
 	vp.multByTranslation({ 10,0,0 });
-	objM.draw(rasterizer, vp);
+	objM2.draw(rasterizer, vp);
 
 	buffer.save("test.tga");
 
-	//std::cin.get();
+	std::cin.get();
     return 0;
 }
 

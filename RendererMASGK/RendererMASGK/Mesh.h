@@ -10,11 +10,11 @@ public:
 
 	virtual void draw(Rasterizer& rast, const VertexProcesor& vp) const = 0;
 	virtual void makeNormals() = 0;
-	Material& getMaterial() { return material; }
+	virtual Material* getMaterial() { return material; }
 
 protected:
 	std::vector<Vertex> vertices;
 	std::vector<int3> indices;
-	Material material;
+	Material *material;
 };
 

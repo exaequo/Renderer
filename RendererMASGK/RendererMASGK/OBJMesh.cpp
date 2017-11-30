@@ -64,8 +64,9 @@ void OBJMesh::loadFromFile(const std::string & fileName)
 	{
 		if (mtlFileTokens[i] == "newmtl")
 		{
-			materials.push_back(Material {});
-			currentMat = &materials[materials.size() - 1];
+			currentMat = new Material{};
+			materials.push_back(currentMat);
+			//currentMat = materials[materials.size() - 1];
 			currentMat->Name() = mtlFileTokens[i + 1];
 			i += 2;
 			continue;
@@ -164,11 +165,11 @@ void OBJMesh::loadFromFile(const std::string & fileName)
 
 		if (objFileTokens[i] == "usemtl")
 		{
-			for (Material &mat : materials)
+			for (Material *mat : materials)
 			{
-				if (mat.Name() == objFileTokens[i + 1])
+				if (mat->Name() == objFileTokens[i + 1])
 				{
-					currentMat = &mat;
+					currentMat = mat;
 				}
 			}
 		}
@@ -193,7 +194,7 @@ void OBJMesh::loadFromFile(const std::string & fileName)
 				triangleVertices[0], 
 				triangleVertices[1],
 				triangleVertices[2],
-				*currentMat
+				currentMat
 			});
 
 			i += 4;

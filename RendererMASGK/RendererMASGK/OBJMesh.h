@@ -13,8 +13,10 @@ public:
 	virtual void draw(Rasterizer& rast, const VertexProcesor& vp) const;
 	virtual void makeNormals();
 
+	virtual Material* getMaterial() { return materials[0]; }
+
 private:
-	std::vector<Material> materials;
+	std::vector<Material*> materials;
 	std::vector<float3> positions;
 	std::vector<float3> normals;
 	std::vector<float3> textureCoord;

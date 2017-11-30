@@ -1,10 +1,11 @@
 #pragma once
+
 class Material
 {
 public:
-	Material() {}
-	Material(const float3& color) :colorDiffuse{ color }{}
-	
+	Material();
+	Material(const float3& color);	
+
 	const float3& getColorAmbient() const { return colorAmbient; }
 	float3& ColorAmbient() { return colorAmbient; }
 	
@@ -19,9 +20,6 @@ public:
 	
 	std::string& Name() { return name; }
 
-	const std::string& getMainTextureID() const { return textureID; }
-	std::string & MainTextureID() { return textureID; }
-
 	float& Ns() { return m_Ns; }
 	float& Ni() { return m_Ni; }
 	float& D() { return m_d; }
@@ -30,6 +28,9 @@ public:
 	float3& Tf() { return m_Tf; }
 	float& N() { return m_n; }
 
+	int ID() { return materialID; }
+	class Texture* getTexture() { return tex; }
+	void setTexture(Texture * t) { tex = t; }
 private:
 	std::string name;
 	float3 colorAmbient;
@@ -45,6 +46,10 @@ private:
 	
 	float m_n;
 
-	std::string textureID;
+	//std::string textureID;
+	Texture* tex;
+
+	int materialID;
+	static int currentMaterialID;
 };
 
