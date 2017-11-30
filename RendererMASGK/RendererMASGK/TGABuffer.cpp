@@ -57,7 +57,7 @@ bool TgaBuffer::loadTexture(const std::string& filename, const std::string& text
 		txt[i] = createColor(texBuffer[i]);
 	}
 	
-	//textures[textureName] = txt;
+	textures[textureName] = txt;
 
 	fclose(f);
 	

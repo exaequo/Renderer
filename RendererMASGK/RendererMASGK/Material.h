@@ -19,6 +19,9 @@ public:
 	
 	std::string& Name() { return name; }
 
+	const std::string& getMainTextureID() const { return textureID; }
+	std::string & MainTextureID() { return textureID; }
+
 	float& Ns() { return m_Ns; }
 	float& Ni() { return m_Ni; }
 	float& D() { return m_d; }
@@ -41,5 +44,7 @@ private:
 	float illum;
 	
 	float m_n;
+
+	std::string textureID;
 };
 

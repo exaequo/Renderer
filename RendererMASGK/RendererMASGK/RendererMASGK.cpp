@@ -30,14 +30,17 @@ int main()
 	objM.draw(rasterizer, vp);
 
 	//vp.multByRotation(-45.f, { 1, 0, 0 });
+	
+
+	buffer.loadTexture("test1.tga", "test");
+	objM.getMaterial().MainTextureID() = "test";
+
 	vp.multByTranslation({ 10,0,0 });
 	objM.draw(rasterizer, vp);
 
-	buffer.loadTexture("test1.tga", "test");
+	buffer.save("test.tga");
 
-	buffer.save("test1.tga");
-
-	std::cin.get();
+	//std::cin.get();
     return 0;
 }
 
