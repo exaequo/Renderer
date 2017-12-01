@@ -1,6 +1,19 @@
 #include "stdafx.h"
 #include "ObjectHolder.h"
 
+ObjectHolder::~ObjectHolder()
+{
+	for (auto obj : textures)
+	{
+		delete obj.second;
+	}
+
+	for (auto obj : materials)
+	{
+		delete obj;
+	}
+}
+
 ObjectHolder & ObjectHolder::Instance()
 {
 	static ObjectHolder instance;

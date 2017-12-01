@@ -3,7 +3,7 @@ class Texture
 {
 public:
 	Texture();
-	Texture(int width, int height);
+	Texture(int width, int height, std::string name);
 	Texture(const Texture& other);
 	~Texture();
 	float3& operator[](unsigned int);
@@ -15,5 +15,6 @@ private:
 	int height;
 	int size;
 	std::vector<float3> vec;
+	std::string name;
 	//float3* arr;
 };

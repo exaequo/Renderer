@@ -4,12 +4,14 @@
 
 
 
-Texture::Texture() : width{ 0 }, height{ 0 }, size{ 0 }{}
+Texture::Texture() : Texture(0,0,"none") {}
 
-Texture::Texture(int width, int height) : width{ width }, height{ height }, size{ height*width }
+Texture::Texture(int width, int height, std::string name) : width{ width }, height{ height }, size{ height*width }, name{name}
 {
 	//arr = new float3[size];
 	vec = std::vector<float3>(size);
+
+	ObjectHolder::Instance().textures[name] = this;
 }
 
 Texture::Texture(const Texture & other) : width{ other.width }, height{ other.height }, size{ other.size }

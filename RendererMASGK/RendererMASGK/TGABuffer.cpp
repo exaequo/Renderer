@@ -54,14 +54,12 @@ bool TgaBuffer::loadTexture(const std::string& filename, const std::string& text
 	
 	fread(texBuffer, sizeof(unsigned int), len, f);
 	
-	Texture *txt = new Texture{ width, height };
+	Texture *txt = new Texture{ width, height, textureName };
 	for (int i = 0; i < len; ++i)
 	{
 		(*txt)[i] = createColor(texBuffer[i]);
 	}
 	
-	ObjectHolder::Instance().textures[textureName] = txt;
-
 	fclose(f);
 
 	return true;

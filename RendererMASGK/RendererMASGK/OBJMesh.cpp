@@ -132,6 +132,22 @@ void OBJMesh::loadFromFile(const std::string & fileName)
 			i += 4;
 			continue;
 		}
+		if (mtlFileTokens[i] == "map_Kd")
+		{
+			//currentMat->ColorEmissive() = { stof(mtlFileTokens[i + 1]), stof(mtlFileTokens[i + 2]), stof(mtlFileTokens[i + 3]) };
+			auto vec = divideLine(mtlFileTokens[i+1],'\\');
+			std::string texName = divideLine(vec[vec.size() - 1], '.')[0];
+
+			if (!ObjectHolder::Instance().getTexture(texName))
+			{
+				TgaBuffer::loadTexture(vec[vec.size() - 1], texName);
+			}
+			
+			currentMat->setTexture(ObjectHolder::Instance().getTexture(texName));
+			
+			i += 2;
+			continue;
+		}
 
 		++i;
 	}

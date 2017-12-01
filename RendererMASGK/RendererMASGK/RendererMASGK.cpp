@@ -33,21 +33,22 @@ int main()
 
 	//vp.multByRotation(-45.f, { 1, 0, 0 });
 	
-	std::string texName = "tst";
+	/*std::string texName = "tst";
 	if (!buffer.loadTexture("wall.tga", texName))
 	{
 		std::cout << "Couldn't load tex\n";
-	}
+	}*/
 
-	for (Material *mat : ObjectHolder::Instance().materials)
+	/*for (Material *mat : ObjectHolder::Instance().materials)
 	{
 		std::cout << "Mater: " << mat->ColorAmbient() << "\n";
 	}
 	ObjectHolder::Instance().materials[0]->setTexture(ObjectHolder::Instance().getTexture(texName));
-
+*/
 	//auto *tex = TgaBuffer::getTexture(texName);
 	
 	vp.multByTranslation({ 10,0,0 });
+	vp.multByRotation(30.f, { 1,0,0 });
 	objM2.draw(rasterizer, vp);
 
 	buffer.save("test.tga");
