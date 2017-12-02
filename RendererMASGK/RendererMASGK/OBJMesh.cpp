@@ -225,7 +225,7 @@ void OBJMesh::draw(Rasterizer & rast, const VertexProcesor & vp) const
 {
 	for (auto tr : triangles)
 	{
-		tr.draw(rast, vp);
+		tr.drawInverse(rast, vp);
 	}
 }
 

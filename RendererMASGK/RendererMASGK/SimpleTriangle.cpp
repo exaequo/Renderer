@@ -31,10 +31,28 @@ void SimpleTriangle::draw(Rasterizer & rasterizer, const VertexProcesor & vp) co
 	//std::cout << "T: "<< material.getTextureID() << "\n";
 	//std::cout << material->getColorDiffuse()<<"\n";
 	rasterizer.Triangle(
-		vp.tr(vertices[2].getPosition()), vp.tr(vertices[1].getPosition()), vp.tr(vertices[0].getPosition()),
-		vertices[2].getTexCoord(), vertices[1].getTexCoord(), vertices[0].getTexCoord(),
-		vertices[2].getNormal(), vertices[1].getNormal(), vertices[0].getNormal(),
-		material, material->getTexture()
+		vp.tr(vertices[0].getPosition()), vp.tr(vertices[1].getPosition()), vp.tr(vertices[2].getPosition()),
+		vertices[0].getTexCoord(), vertices[1].getTexCoord(), vertices[2].getTexCoord(),
+		vertices[0].getNormal(), vertices[1].getNormal(), vertices[2].getNormal(),
+		material->getColorDiffuse(), material->getColorDiffuse(), material->getColorDiffuse(),
+		material
+		//material, material->getTexture()
+	);
+}
+
+void SimpleTriangle::drawInverse(Rasterizer & rasterizer, const VertexProcesor & vp) const
+{
+	Vertex v1 = vp.tr(vertices[0]);
+	Vertex v2 = vp.tr(vertices[1]);
+	Vertex v3 = vp.tr(vertices[2]);
+	
+	rasterizer.Triangle(
+		v3.getPosition(), v2.getPosition(), v1.getPosition(),
+		v3.getTexCoord(), v2.getTexCoord(), v1.getTexCoord(),
+		v3.getNormal(), v2.getNormal(), v1.getNormal(),
+		material->getColorDiffuse(), material->getColorDiffuse(), material->getColorDiffuse(),
+		//{1,0,0},{0,1,0},{0,0,1},
+		material
 	);
 }
 

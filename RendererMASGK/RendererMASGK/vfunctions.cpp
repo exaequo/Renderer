@@ -162,6 +162,7 @@ std::ostream & operator<<(std::ostream & stream, const float3 &val)
 }
 
 
+
 unsigned int float4::ColorARGB() const
 {
 	return ((unsigned char)(a * 255) * 16777216 + (unsigned char)(r * 255) * 65536 + (unsigned char)(g * 255) * 256 + (unsigned char)(b * 255));
@@ -321,6 +322,59 @@ const float4 & float4x4::operator[](const int n) const
 {
 	if (n > 3 || n < 0) { throw new std::exception{ "***float4x4: n too big\n" }; }
 	return arr[n];
+}
+
+float4x4 float4x4::inverse() const
+{
+	float4x4 m1 = { *this };
+	float4x4 m2{ 
+		{1,0,0,0},
+		{0,1,0,0},
+		{0,0,1,0},
+		{0,0,0,1}
+	};
+	
+	for (int i = 0; i < 4; ++i)
+	{
+		/*if (m1[i][i] == 0)
+		{
+			throw std::exception("float4x4: DIVISION BY 0");
+		}*/
+		float div = 1.f / m1[i][i];
+
+		for (int j = 0; j < 4; ++j)
+		{
+			m1[j][i] *= div;
+			m2[j][i] *= div;
+		}
+
+		for (int j = 0; j < 4; ++j)
+		{
+			if (j != i)
+			{
+				float mul = m1[i][j];
+
+				for (int k = 0; k < 4; ++k)
+				{
+					m1[k][j] -= mul * m1[k][i];
+					m2[k][j] -= mul * m2[k][i];
+				}
+			}
+		}
+	}
+
+	return m2;
+}
+
+float4x4 float4x4::transpose() const
+{
+	return {
+		{ (*this)[0][0], (*this)[1][0], (*this)[2][0],  (*this)[3][0] },
+		{ (*this)[0][1], (*this)[1][1], (*this)[2][1],  (*this)[3][1] },
+		{ (*this)[0][2], (*this)[1][2], (*this)[2][2],  (*this)[3][2] },
+		{ (*this)[0][3], (*this)[1][3], (*this)[2][3],  (*this)[3][3] },
+	
+	};
 }
 
 int & int3::operator[](const int n)

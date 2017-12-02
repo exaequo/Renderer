@@ -38,7 +38,7 @@ int main()
 	{
 		std::cout << "Couldn't load tex\n";
 	}*/
-
+	
 	/*for (Material *mat : ObjectHolder::Instance().materials)
 	{
 		std::cout << "Mater: " << mat->ColorAmbient() << "\n";

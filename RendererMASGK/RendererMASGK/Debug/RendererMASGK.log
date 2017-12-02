@@ -1,5 +1,5 @@
-﻿  OBJMesh.cpp
-e:\użytkownicy\hubert\miasgk\renderer\renderermasgk\renderermasgk\objmesh.cpp(63): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-e:\użytkownicy\hubert\miasgk\renderer\renderermasgk\renderermasgk\objmesh.cpp(158): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-e:\użytkownicy\hubert\miasgk\renderer\renderermasgk\renderermasgk\objmesh.cpp(24): warning C4101: "vectorValue": lokalna zmienna, do której nie istnieje odwołanie
+﻿  vfunctions.cpp
+  Generowanie kodu...
+  Pomijanie... (nie wykryto odpowiednich zmian)
+  Light.cpp
   RendererMASGK.vcxproj -> E:\Użytkownicy\Hubert\MiASGK\Renderer\RendererMASGK\RendererMASGK\Debug\RendererMASGK.exe

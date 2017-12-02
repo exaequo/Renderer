@@ -7,9 +7,12 @@ public:
 	float4x4 view2proj;
 	float4x4 obj2view;
 	float4x4 obj2proj;
+	float4x4 normal;
 
 	float3 tr(const float3& v) const;
-	void lt();
+	class Vertex tr(const class Vertex & v) const;
+	//class Vertex lt(const class Vertex & f) const;
+	float3 lt(const class Vertex& v) const;
 
 	void setPerspective(float fovy, float aspect, float near, float far);
 	void setLookat(const float3& eye, const float3& center, const float3& up);

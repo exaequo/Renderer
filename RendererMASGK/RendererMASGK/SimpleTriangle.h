@@ -10,6 +10,7 @@ public:
 	~SimpleTriangle();
 
 	virtual void draw(Rasterizer& rast, const VertexProcesor& vp) const;
+	virtual void drawInverse(Rasterizer& rast, const VertexProcesor& vp) const;
 	virtual void makeNormals();
 };
 

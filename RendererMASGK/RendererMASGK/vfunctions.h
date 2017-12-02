@@ -52,6 +52,8 @@ struct float4 {
 	float4() {};
 	float4(float x, float y, float z, float w) : x{ x }, y{ y }, z{ z }, w{ w } {};
 	float4(const float3& v, float w) : x{ v.x }, y{ v.y }, z{ v.z }, w{ w } {};
+
+	
 	unsigned int ColorARGB() const;
 
 	float4& operator+(const float4&);
@@ -74,6 +76,9 @@ struct float4x4 {
 	float4& operator[](const int n);
 	const float4& operator[](const int n) const;
 	
+	float4x4 inverse() const;
+	float4x4 transpose() const;
+
 	friend std::ostream& operator<< (std::ostream& stream, const float4x4&);
 };
 

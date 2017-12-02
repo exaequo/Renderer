@@ -14,6 +14,8 @@ private:
 	float3 position;
 	float3 normal;
 	float3 texCoord;
+
+	friend VertexProcesor;
 };
 
 typedef Vertex Fragment;
