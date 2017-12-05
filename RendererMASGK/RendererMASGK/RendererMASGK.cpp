@@ -19,15 +19,16 @@ int main()
 	
 	Data::Instance().AmbientLight() = { 0.25f, 0.25f, 0.25f };
 
-	DirectionalLight *light{ new DirectionalLight(&vp,{ 0, -1, -0.1f },{ 1, 1, 1 },{ .1f, .1f, .1f }) };
+	DirectionalLight *light{ new DirectionalLight(&vp,{ 0.1f, -1, -0.1f },{ 1, 1, 1 },{ .1f, .1f, .1f }) };
+	//DirectionalLight *light{ new DirectionalLight(&vp,{ 0, 0, -1.f },{ 1, 1, 1 },{ .1f, .1f, .1f }) };
 
-	vp.multByTranslation({ -5,0, 0.f });
+	vp.multByTranslation({ -5,0, -10.f });
 	//vp.multByRotation(90.f, { 0,1,0 });
 		
 	OBJMesh objM2{ "sphereTEX" };
 
-	OBJMesh objM{ "sphere" };
-	objM.draw(rasterizer, vp);
+	OBJMesh objM{ "teapotHIGH" };
+	objM2.draw(rasterizer, vp);
 
 	//vp.multByRotation(-45.f, { 1, 0, 0 });
 	
@@ -45,9 +46,9 @@ int main()
 */
 	//auto *tex = TgaBuffer::getTexture(texName);
 	
-	vp.multByTranslation({ 10,0,0 });
-	vp.multByRotation(180.f, { 1,0,0 });
-	objM2.draw(rasterizer, vp);
+	vp.multByTranslation({ 12.5f,-5,-5 });
+	vp.multByRotation(-25.f, { 0,1,0 });
+	objM.draw(rasterizer, vp);
 
 	buffer.save("test.tga");
 

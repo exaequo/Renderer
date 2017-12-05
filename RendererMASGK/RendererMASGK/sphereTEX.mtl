@@ -2,7 +2,7 @@
 # File Created: 01.12.2017 15:41:00
 
 newmtl Material__38
-	Ns 10.0000
+	Ns 100.0000
 	Ni 1.5000
 	d 1.0000
 	Tr 0.0000
@@ -10,7 +10,7 @@ newmtl Material__38
 	illum 2
 	Ka 0.7255 0.7255 0.7255
 	Kd 0.7255 0.7255 0.7255
-	Ks 0.0000 0.0000 0.0000
+	Ks 1.0000 1.0000 1.0000
 	Ke 0.0000 0.0000 0.0000
 	map_Ka E:\Uzytkownicy\Hubert\MiASGK\Renderer\RendererMASGK\RendererMASGK\wall.tga
 	map_Kd E:\Uzytkownicy\Hubert\MiASGK\Renderer\RendererMASGK\RendererMASGK\wall.tga

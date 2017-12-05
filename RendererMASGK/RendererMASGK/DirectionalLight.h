@@ -9,7 +9,8 @@ public:
 
 	float3& Dir() { return dir; }
 
-	virtual float3 getLightInPoint(const float3& normal, const float3& eye, const Material& mat);
+	virtual const float3& getDir() const;
+	//virtual float3 getLightInPoint(const float3& normal, const float3& eye, const Material& mat);
 private:
 	float3 dir;
 };

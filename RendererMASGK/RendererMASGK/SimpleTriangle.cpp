@@ -56,7 +56,8 @@ void SimpleTriangle::drawInverse(Rasterizer & rasterizer, const VertexProcesor &
 		vp,
 		v3.getPosition(), v2.getPosition(), v1.getPosition(),
 		v3.getTexCoord(), v2.getTexCoord(), v1.getTexCoord(),
-		n3,				  n2,				n1,
+		n3,n2,n1,
+		//v3.getNormal(), v2.getNormal(), v1.getNormal(),
 		//material->getColorDiffuse(), material->getColorDiffuse(), material->getColorDiffuse(),
 		//{1,0,0},{0,1,0},{0,0,1},
 		material

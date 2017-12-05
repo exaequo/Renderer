@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "VertexProcesor.h"
 #include <cmath>
+#include <algorithm>
 
 VertexProcesor::VertexProcesor(float fovy, float aspect, float near, float far,
 	const float3 & eye, const float3 & center, const float3 & up)
@@ -38,34 +39,41 @@ Vertex VertexProcesor::tr(const Vertex & v) const
 }
 float3 VertexProcesor::lt(const Vertex & v, const Material& mat) const
 {
-	float3 color{};// = mat.getColorDiffuse();
+	float3 col{};// = mat.getColorDiffuse();
 	
 
 	for (auto * light : Data::Instance().getLights())
 	{
-		color += light->getLightInPoint(v.getNormal(), -1.f * v.getPosition(), mat);
-	}
-	color += Data::Instance().AmbientLight() * mat.getColorAmbient();
+		float3 res{};
+		float3 spec{};
+		float intensity = std::max(dotProduct(v.getNormal(), -1.f * light->getDir()), 0.f);
 
+		if (intensity > 0.f)
+		{
+			float3 eye = v.getPosition().getNormalized();
+			float3 h = (eye - light->getDir()).normalize();
+
+			float intSpec = std::max(dotProduct(h, v.getNormal()), 0.f);
+			spec = mat.getColorSpecular() * pow(intSpec, mat.getNs());
+
+		}
+		res = intensity * light->Color() * mat.getColorDiffuse() +spec;
+
+		res.normalizeColor();
+		//std::cout << "i: "<< intensity <<", s: " << spec << "\n";
+		//std::cout << light->getDir() << "\n";
+		col += res;
+	}
 
 	if (mat.getTexture())
 	{
-		//color *= mat.getTexture().getCo
+		col *= mat.getTexture()->getColor(v.getTexCoord());
 	}
+	col += Data::Instance().AmbientLight() * mat.getColorAmbient();
 
-	color.normalizeColor();
-	return color;
+	col.normalizeColor();
+	return col;
 }
-//
-//Vertex VertexProcesor::lt(const Vertex & f) const
-//{
-//	Vertex res{ f };
-//	
-//
-//
-//	return res;
-//}
-
 
 
 void VertexProcesor::setPerspective(float fovy, float aspect, float near, float far)
@@ -194,5 +202,5 @@ void VertexProcesor::calculateMatrices()
 	obj2view = mul(world2view, obj2world);
 	obj2proj = mul(view2proj, obj2view);
 	//normal = float4x4::identity();
-	normal = obj2view.transpose().inverse();//.inverse().transpose();
+	normal = obj2view.inverse().transpose();// .inverse();//.inverse().transpose();
 }

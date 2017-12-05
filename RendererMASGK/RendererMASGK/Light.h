@@ -8,7 +8,7 @@ public:
 
 	float3& Position() { return position; }
 	float3& Color() { return color; }
-	virtual float3 getLightInPoint(const float3& normal, const float3& eye, const Material& mat) = 0;
+	virtual const float3& getDir() const = 0;
 protected:
 	float3 position;
 	float3 color;

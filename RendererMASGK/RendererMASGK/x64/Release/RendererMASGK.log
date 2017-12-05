@@ -1,7 +1,14 @@
-﻿  DirectionalLight.cpp
+﻿  Rasterizer.cpp
+Rasterizer.cpp(36): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+Rasterizer.cpp(37): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+Rasterizer.cpp(38): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+Rasterizer.cpp(39): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+Rasterizer.cpp(40): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+Rasterizer.cpp(41): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
   Trwa generowanie kodu
-  6 of 919 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
-    2 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+d:\studia\masgk\renderer\renderermasgk\renderermasgk\vfunctions.cpp(65): warning C4172: zwracanie adresu lokalnej zmiennej lub tymczasowej: r
+  9 of 918 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
   RendererMASGK.vcxproj -> D:\Studia\masgk\Renderer\RendererMASGK\RendererMASGK\x64\Release\RendererMASGK.exe

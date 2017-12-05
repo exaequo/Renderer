@@ -84,11 +84,13 @@ void Rasterizer::Triangle(
 				if (depth >= 0 && depth < buffer.GetDepth(n))
 				{
 					//color calculations
-					float3 color = c1 * d1 +c2 * d2 + c3 * d3;
-					if (tex)
-					{
-						color *= tex->getColor(d1 * tc1 + d2 * tc2 + d3 * tc3);
-					}
+					float3 color = vp.lt({
+						d1 * p1 + d2 * p2 + d3 * p3,
+						d1 * n1 + d2 * n2 + d3 * n3,
+						d1 * tc1 + d2 * tc2 + d3 * tc3
+					}, *mat);
+					//float3 color =c1 * d1 +c2 * d2 + c3 * d3;
+					
 					buffer.SetColor(n, color.ColorRGB());
 					buffer.SetDepth(n, depth);
 				}
