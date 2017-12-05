@@ -8,10 +8,11 @@ public:
 	Rasterizer(Buffer& buff) : buffer{ buff } {}
 	~Rasterizer();
 	void Triangle(
+		const class VertexProcesor& vp,
 		const float3& p1,	const float3& p2,	const float3& p3,
 		const float3& tc1,	const float3& tc2,	const float3& tc3,
 		const float3& n1,	const float3& n2,	const float3& n3,
-		const float3& c1,	const float3& c2,	const float3& c3,
+		//const float3& c1,	const float3& c2,	const float3& c3,
 		class Material* mat
 	);
 

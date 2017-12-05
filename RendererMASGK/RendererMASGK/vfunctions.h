@@ -16,17 +16,25 @@ struct float3 {
 	float3 Cross(const float3& other);
 	float magnitude() const;
 	float3& normalize();
+	void normalizeColor();
 	float3 getNormalized() const;
 
 	float3& operator+(const float3&);
 	float3& operator-(const float3&);
+	float3 operator-();
+
 	float3& operator*(const float);
 	float3& operator/(const float);
 	float3& operator*(const float3&);
+
+	float3& operator+=(const float3&);
+	float3& operator*=(const float3&);
+
 	float& operator[](const int n);
 	const float& operator[](const int n) const;
 	
 	friend float3 operator-(const float3& lhs, const float3 & rhs);
+	
 	friend float3 operator*(const float lhs, const float3 & rhs);
 	friend float3 operator*(const float3& lhs, const float rhs);
 	friend std::ostream& operator<< (std::ostream& stream, const float3&);
@@ -78,6 +86,7 @@ struct float4x4 {
 	
 	float4x4 inverse() const;
 	float4x4 transpose() const;
+	static float4x4 identity();
 
 	friend std::ostream& operator<< (std::ostream& stream, const float4x4&);
 };

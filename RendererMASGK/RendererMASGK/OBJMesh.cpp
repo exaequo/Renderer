@@ -138,12 +138,12 @@ void OBJMesh::loadFromFile(const std::string & fileName)
 			auto vec = divideLine(mtlFileTokens[i+1],'\\');
 			std::string texName = divideLine(vec[vec.size() - 1], '.')[0];
 
-			if (!ObjectHolder::Instance().getTexture(texName))
+			if (!Data::Instance().getTexture(texName))
 			{
 				TgaBuffer::loadTexture(vec[vec.size() - 1], texName);
 			}
 			
-			currentMat->setTexture(ObjectHolder::Instance().getTexture(texName));
+			currentMat->setTexture(Data::Instance().getTexture(texName));
 			
 			i += 2;
 			continue;

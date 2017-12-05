@@ -1,15 +1,17 @@
 #pragma once
-class ObjectHolder
+class Data
 {
 public:
-	ObjectHolder() {}
-	~ObjectHolder();
-	ObjectHolder(const ObjectHolder&) = delete;
-	ObjectHolder & operator=(const ObjectHolder&) = delete;
+	Data() {}
+	~Data();
+	Data(const Data&) = delete;
+	Data & operator=(const Data&) = delete;
 
-	static ObjectHolder& Instance();
+	static Data& Instance();
 	
 	class Texture * getTexture(const std::string& name);
+	const std::vector<class Light*> & getLights() const { return lights; }
+	float3& AmbientLight() { return ambientLight; }
 
 	//int materialsSize() const { return materials.size(); }
 	//int texturesSize() const { return textures.size(); }
@@ -17,8 +19,12 @@ public:
 private:
 	std::vector<class Material *> materials;
 	std::map<std::string, class Texture *> textures;
+	std::vector<class Light*> lights;
+	
+	float3 ambientLight;
 
 	friend class Texture;
 	friend class Material;
+	friend class Light;
 };
 

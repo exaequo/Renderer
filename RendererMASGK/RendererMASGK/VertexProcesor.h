@@ -12,13 +12,15 @@ public:
 	float3 tr(const float3& v) const;
 	class Vertex tr(const class Vertex & v) const;
 	//class Vertex lt(const class Vertex & f) const;
-	float3 lt(const class Vertex& v) const;
+	float3 lt(const class Vertex& v, const Material& mat) const;
 
 	void setPerspective(float fovy, float aspect, float near, float far);
 	void setLookat(const float3& eye, const float3& center, const float3& up);
 	void multByTranslation(const float3& v);
 	void multByScale(const float3& v);
 	void multByRotation(const float a, const float3& v);
+
+	float3 transformNormal(const float3& norm) const;
 
 	VertexProcesor(float fovy, float aspect, float near, float far, 
 		const float3& eye, const float3& center, const float3& up);

@@ -21,6 +21,8 @@ public:
 	std::string& Name() { return name; }
 
 	float& Ns() { return m_Ns; }
+	const float& getNs() const { return m_Ns; }
+
 	float& Ni() { return m_Ni; }
 	float& D() { return m_d; }
 	float& Tr() { return m_Tr; }
@@ -30,6 +32,7 @@ public:
 
 	int ID() { return materialID; }
 	class Texture* getTexture() { return tex; }
+	const class Texture* getTexture() const { return tex; }
 	void setTexture(Texture * t) { tex = t; }
 private:
 	std::string name;

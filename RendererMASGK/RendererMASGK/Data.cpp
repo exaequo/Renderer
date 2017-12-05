@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "ObjectHolder.h"
+#include "Data.h"
 
-ObjectHolder::~ObjectHolder()
+Data::~Data()
 {
 	for (auto obj : textures)
 	{
@@ -14,13 +14,13 @@ ObjectHolder::~ObjectHolder()
 	}
 }
 
-ObjectHolder & ObjectHolder::Instance()
+Data & Data::Instance()
 {
-	static ObjectHolder instance;
+	static Data instance;
 	return instance;
 }
 
-Texture * ObjectHolder::getTexture(const std::string & name)
+Texture * Data::getTexture(const std::string & name)
 {
 	if (textures.find(name) == textures.end())
 	{

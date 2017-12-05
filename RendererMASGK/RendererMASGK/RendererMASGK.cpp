@@ -14,18 +14,16 @@ int main()
 	buffer.ClearDepth();
 
 	Rasterizer rasterizer(buffer);
-
-	VertexProcesor vp{ 60, static_cast<float>(width) / height, 0.3f, 1000.f,
+	VertexProcesor vp{ 90, static_cast<float>(width) / height, 0.3f, 10000.f,
 			{0,0,10}, {0,0,0}, {0,1,0} };
 	
-	vp.multByTranslation({ -5,0,-10.f });
-	//vp.multByScale({ .5f, .5f, .5f });
-	//vp.multByRotation(45.f, { 1, 0, 0 });
+	Data::Instance().AmbientLight() = { 0.25f, 0.25f, 0.25f };
 
-	/*SimpleTriangle obj{ { -0.5f, -0.5f, 0.f },{ 0.f, 0.5f, 0.f },{ 0.5f, -0.5f, 0.f } };
-	obj.getMaterial().ColorDiffuse() = float3{ 0,1,0 };
-	obj.draw(rasterizer, vp);*/
+	DirectionalLight *light{ new DirectionalLight(&vp,{ 0, -1, -0.1f },{ 1, 1, 1 },{ .1f, .1f, .1f }) };
 
+	vp.multByTranslation({ -5,0, 0.f });
+	//vp.multByRotation(90.f, { 0,1,0 });
+		
 	OBJMesh objM2{ "sphereTEX" };
 
 	OBJMesh objM{ "sphere" };
@@ -48,7 +46,7 @@ int main()
 	//auto *tex = TgaBuffer::getTexture(texName);
 	
 	vp.multByTranslation({ 10,0,0 });
-	vp.multByRotation(30.f, { 1,0,0 });
+	vp.multByRotation(180.f, { 1,0,0 });
 	objM2.draw(rasterizer, vp);
 
 	buffer.save("test.tga");

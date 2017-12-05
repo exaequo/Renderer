@@ -36,9 +36,25 @@ Vertex VertexProcesor::tr(const Vertex & v) const
 	//return Vertex();
 	return res;
 }
-float3 VertexProcesor::lt(const Vertex & v) const
+float3 VertexProcesor::lt(const Vertex & v, const Material& mat) const
 {
-	return float3();
+	float3 color{};// = mat.getColorDiffuse();
+	
+
+	for (auto * light : Data::Instance().getLights())
+	{
+		color += light->getLightInPoint(v.getNormal(), -1.f * v.getPosition(), mat);
+	}
+	color += Data::Instance().AmbientLight() * mat.getColorAmbient();
+
+
+	if (mat.getTexture())
+	{
+		//color *= mat.getTexture().getCo
+	}
+
+	color.normalizeColor();
+	return color;
 }
 //
 //Vertex VertexProcesor::lt(const Vertex & f) const
@@ -160,11 +176,23 @@ void VertexProcesor::multByRotation(const float a, const float3 & vec)
 	calculateMatrices();
 }
 
+float3 VertexProcesor::transformNormal(const float3 & norm) const
+{
+	float4 n{ norm, 0.f };
+
+	n = mul(normal, n);
+
+	float3 res{ n.x, n.y, n.z };
+
+	return res.getNormalized();
+}
+
 
 
 void VertexProcesor::calculateMatrices()
 {
 	obj2view = mul(world2view, obj2world);
 	obj2proj = mul(view2proj, obj2view);
-	normal = obj2view.inverse().transpose();
+	//normal = float4x4::identity();
+	normal = obj2view.transpose().inverse();//.inverse().transpose();
 }

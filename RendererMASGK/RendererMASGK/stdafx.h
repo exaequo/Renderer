@@ -17,7 +17,9 @@
 #include "SimpleTriangle.h"
 #include "OBJMesh.h"
 #include "Texture.h"
-#include "ObjectHolder.h"
+#include "Data.h"
+#include "Light.h"
+#include "DirectionalLight.h"
 #include <stdio.h>
 #include <tchar.h>
 

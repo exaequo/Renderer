@@ -33,6 +33,15 @@ float3& float3::normalize()
 	return (*this);
 }
 
+void float3::normalizeColor()
+{
+	for (int i = 0; i < 3; ++i)
+	{
+		if ((*this)[i] < 0.f) { (*this)[i] = 0.f; }
+		if ((*this)[i] > 1.f) { (*this)[i] = 1.f; }
+	}
+}
+
 float3 float3::getNormalized() const
 {
 	float3 f{ (*this) };
@@ -48,42 +57,69 @@ float3 float3::getNormalized() const
 
 float3 & float3::operator+(const float3 & other)
 {
-	this->x += other.x;
-	this->y += other.y;
-	this->z += other.z;
+	float3 r{*this};
+	r.x += other.x;
+	r.y += other.y;
+	r.z += other.z;
 	
-	return *this;
+	return r;
 }
 
 float3 & float3::operator-(const float3 &other)
 {
-	this->x -= other.x;
-	this->y -= other.y;
-	this->z -= other.z;
+	float3 r{*this};
+	r.x -= other.x;
+	r.y -= other.y;
+	r.z -= other.z;
 
-	return *this;
+	return r;
+}
+
+float3 float3::operator-()
+{
+	return float3{ -x,-y,-z };
 }
 
 float3 & float3::operator*(const float value)
 {
-	this->x *= value;
-	this->y *= value;
-	this->z *= value;
-
-	return *this;
+	float3 r{ *this };
+	r.x *= value;
+	r.y *= value;
+	r.z *= value;
+	return r;
 }
 
 float3 & float3::operator/(const float r)
 {
-	for (int i = 0; i < 3; ++i) { (*this)[i] /= r; }
-	return (*this);
+	float3 res{ *this };
+	for (int i = 0; i < 3; ++i) { res[i] /= r; }
+	return res;
 }
 
 float3 & float3::operator*(const float3 & other)
 {
-	this->x *= other.x;
-	this->y *= other.y;
-	this->z *= other.z;
+	float3 r{ *this };
+	r.x *= other.x;
+	r.y *= other.y;
+	r.z *= other.z;
+
+	return r;
+}
+
+float3 & float3::operator+=(const float3 &o)
+{
+	x += o.x;
+	y += o.y;
+	z += o.z;
+
+	return *this;
+}
+
+float3 & float3::operator*=(const float3 &o)
+{
+	x *= o.x;
+	y *= o.y;
+	z *= o.z;
 
 	return *this;
 }
@@ -375,6 +411,16 @@ float4x4 float4x4::transpose() const
 		{ (*this)[0][3], (*this)[1][3], (*this)[2][3],  (*this)[3][3] },
 	
 	};
+}
+
+float4x4 float4x4::identity()
+{
+	return float4x4(
+		{1,0,0,0},
+		{0,1,0,0},
+		{0,0,1,0},
+		{0,0,0,1}	
+	);
 }
 
 int & int3::operator[](const int n)

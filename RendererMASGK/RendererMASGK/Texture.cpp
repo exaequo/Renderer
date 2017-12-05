@@ -11,7 +11,7 @@ Texture::Texture(int width, int height, std::string name) : width{ width }, heig
 	//arr = new float3[size];
 	vec = std::vector<float3>(size);
 
-	ObjectHolder::Instance().textures[name] = this;
+	Data::Instance().textures[name] = this;
 }
 
 Texture::Texture(const Texture & other) : width{ other.width }, height{ other.height }, size{ other.size }

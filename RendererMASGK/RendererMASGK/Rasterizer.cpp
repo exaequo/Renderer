@@ -8,10 +8,11 @@ Rasterizer::~Rasterizer()
 
 /** Draws a triangle with vertices of the specified colors*/
 void Rasterizer::Triangle(
+	const VertexProcesor& vp,
 	const float3& p1, const float3& p2, const float3& p3,
 	const float3& tc1, const float3& tc2, const float3& tc3,
 	const float3& n1, const float3& n2, const float3& n3,
-	const float3& c1, const float3& c2, const float3& c3,
+	//const float3& c1, const float3& c2, const float3& c3,
 	Material* mat)
 {
 
@@ -21,10 +22,15 @@ void Rasterizer::Triangle(
 	//std::cout << "P3: " << p3 << "\n";
 	//screen point positions
 	//float3 c =  mat->getColorDiffuse();
+	float3 c1 = vp.lt({	p1, n1, tc1	}, *mat);
+	float3 c2 = vp.lt({ p2, n2, tc2 }, *mat);
+	float3 c3 = vp.lt({ p3, n3, tc3 }, *mat);
 
-	//std::cout << (tex != nullptr) << "";
 
-	//std::cout << c << "\n";
+	//std::cout << "c1: " << c1
+		//<< ",c2: " << c2
+		//<< ",c3: " << c3 << "\n";
+
 	Texture* tex = mat->getTexture();
 
 	int x1 = (p1.x + 1) * buffer.width *.5f,
@@ -78,10 +84,10 @@ void Rasterizer::Triangle(
 				if (depth >= 0 && depth < buffer.GetDepth(n))
 				{
 					//color calculations
-					float3 color = c1 * d1 + c2 * d2 + c3 * d3;
+					float3 color = c1 * d1 +c2 * d2 + c3 * d3;
 					if (tex)
 					{
-						color = tex->getColor(d1 * tc1 + d2 * tc2 + d3 * tc3);
+						color *= tex->getColor(d1 * tc1 + d2 * tc2 + d3 * tc3);
 					}
 					buffer.SetColor(n, color.ColorRGB());
 					buffer.SetDepth(n, depth);
