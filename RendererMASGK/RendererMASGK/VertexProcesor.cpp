@@ -65,7 +65,7 @@ float3 VertexProcesor::lt(const Vertex & v, const Material& mat) const
 			float3 eye = v.getPosition().getNormalized();
 			float3 h = (eye - light->getDir()).normalize();
 
-			float intSpec = std::max(dotProduct(h, v.getNormal()), 0.f);
+			float intSpec = std::max(dotProduct(h, n), 0.f);
 			spec = mat.getColorSpecular() * pow(intSpec, mat.getNs());
 			spec *= light->Specular();
 		}
