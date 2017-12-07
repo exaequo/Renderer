@@ -27,20 +27,20 @@ int main()
 
 	//vp.multByTranslation({ -5,0, -10.f });
 	//vp.multByRotation(90.f, { 0,1,0 });
-		
+	
+	OBJMesh objM{ "torus" };
 	OBJMesh objM2{ "sphereTEX" };
 
-	OBJMesh objM{ "torusHIGH" };
-	objM2.draw(rasterizer, vp);
-
 	
-	//vp.multByTranslation({ 5.f,-5,-5 });
+	objM2.draw(rasterizer, vp);
+		
+	vp.multByTranslation({ 5.f,-5,-5 });
 	vp.multByRotation(20.f, { 1,0,0 });
 	
 	vp.multByTranslation({ -5.f,-5, 0});
-	//vp.multByScale({ 4,4,4 });
+	vp.multByScale({ 4,4,4 });
 
-	//objM.draw(rasterizer, vp);
+	objM.draw(rasterizer, vp);
 	buffer.save("test.tga");
 
 	std::cin.get();

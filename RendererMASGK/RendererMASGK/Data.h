@@ -12,6 +12,7 @@ public:
 	class Texture * getTexture(const std::string& name);
 	const std::vector<class Light*> & getLights() const { return lights; }
 	float3& AmbientLight() { return ambientLight; }
+	const float3& getAmbientLight() const { return ambientLight; }
 
 	//int materialsSize() const { return materials.size(); }
 	//int texturesSize() const { return textures.size(); }

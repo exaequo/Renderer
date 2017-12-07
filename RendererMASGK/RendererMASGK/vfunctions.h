@@ -25,7 +25,8 @@ struct float3 {
 
 	float3& operator*(const float);
 	float3& operator/(const float);
-	float3& operator*(const float3&);
+	float3& operator*(const float3&) const;
+
 
 	float3& operator+=(const float3&);
 	float3& operator*=(const float3&);

@@ -96,7 +96,7 @@ float3 & float3::operator/(const float r)
 	return res;
 }
 
-float3 & float3::operator*(const float3 & other)
+float3 & float3::operator*(const float3 & other) const
 {
 	float3 r{ *this };
 	r.x *= other.x;

@@ -82,7 +82,7 @@ float3 VertexProcesor::lt(const Vertex & v, const Material& mat) const
 	{
 		col *= mat.getTexture()->getColor(v.getTexCoord());
 	}*/
-	col += Data::Instance().AmbientLight() * mat.getColorAmbient() * mat.getTexture()->getColor(v.getTexCoord());
+	col += Data::Instance().getAmbientLight() * mat.getColorAmbient() * tex;
 
 	col.normalizeColor();
 	return col;
