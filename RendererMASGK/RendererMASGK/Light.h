@@ -8,10 +8,12 @@ public:
 
 	float3& Position() { return position; }
 	float3& Color() { return color; }
+	float3& Specular() { return specular; }
 	virtual const float3& getDir() const = 0;
 protected:
 	float3 position;
 	float3 color;
 	float3 ambient;
+	float3 specular;
 };
 

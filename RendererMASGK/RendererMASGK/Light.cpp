@@ -12,7 +12,7 @@
 //{
 //}
 
-Light::Light(const VertexProcesor * vp, const float3 & position, const float3 & color, const float3 & ambient) : position{ position }, color{ color }, ambient{ ambient }
+Light::Light(const VertexProcesor * vp, const float3 & position, const float3 & color, const float3 & ambient) : position{ position }, color{ color }, ambient{ ambient }, specular{{1,1,1}}
 {
 	Data::Instance().lights.push_back(this);
 	if (vp)

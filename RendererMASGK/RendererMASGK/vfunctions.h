@@ -94,6 +94,8 @@ struct float4x4 {
 int Min(int v1, int v2, int v3);
 int Max(int v1, int v2, int v3);
 
+float3 max(const float3 & l, const float3 & r);
+
 float3 crossProduct(const float3& lhs, const float3& rhs);
 float dotProduct(const float3& lhs, const float3& rhs);
 

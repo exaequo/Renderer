@@ -40,13 +40,25 @@ Vertex VertexProcesor::tr(const Vertex & v) const
 float3 VertexProcesor::lt(const Vertex & v, const Material& mat) const
 {
 	float3 col{};// = mat.getColorDiffuse();
-	
+	float3 n{ v.getNormal() };
+	float3 tex{ 1,1,1 };
+
+	if (mat.getTexture())
+	{
+		tex = mat.getTexture()->getColor(v.getTexCoord());
+	}
+
+	if (mat.getNormal())
+	{
+		n *= mat.getNormal()->getColor(v.getTexCoord());
+	}
+	n.normalize();
 
 	for (auto * light : Data::Instance().getLights())
 	{
 		float3 res{};
 		float3 spec{};
-		float intensity = std::max(dotProduct(v.getNormal(), -1.f * light->getDir()), 0.f);
+		float intensity = std::max(dotProduct(n, -1.f * light->getDir()), 0.f);
 
 		if (intensity > 0.f)
 		{
@@ -55,21 +67,22 @@ float3 VertexProcesor::lt(const Vertex & v, const Material& mat) const
 
 			float intSpec = std::max(dotProduct(h, v.getNormal()), 0.f);
 			spec = mat.getColorSpecular() * pow(intSpec, mat.getNs());
-
+			spec *= light->Specular();
 		}
-		res = intensity * light->Color() * mat.getColorDiffuse() +spec;
+		float3 diff = tex * mat.getColorDiffuse();
+
+		res = intensity * light->Color() * diff + spec;
 
 		res.normalizeColor();
-		//std::cout << "i: "<< intensity <<", s: " << spec << "\n";
-		//std::cout << light->getDir() << "\n";
+
 		col += res;
 	}
 
-	if (mat.getTexture())
+	/*if (mat.getTexture())
 	{
 		col *= mat.getTexture()->getColor(v.getTexCoord());
-	}
-	col += Data::Instance().AmbientLight() * mat.getColorAmbient();
+	}*/
+	col += Data::Instance().AmbientLight() * mat.getColorAmbient() * mat.getTexture()->getColor(v.getTexCoord());
 
 	col.normalizeColor();
 	return col;

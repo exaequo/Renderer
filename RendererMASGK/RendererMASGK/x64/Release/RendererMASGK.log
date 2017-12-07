@@ -1,14 +1,21 @@
-﻿  Rasterizer.cpp
-Rasterizer.cpp(36): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-Rasterizer.cpp(37): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-Rasterizer.cpp(38): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-Rasterizer.cpp(39): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-Rasterizer.cpp(40): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-Rasterizer.cpp(41): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+﻿  RendererMASGK.cpp
   Trwa generowanie kodu
-d:\studia\masgk\renderer\renderermasgk\renderermasgk\vfunctions.cpp(65): warning C4172: zwracanie adresu lokalnej zmiennej lub tymczasowej: r
-  9 of 918 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+  4 of 921 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    4 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
+Light.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+Material.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+Mesh.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+Data.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+OBJMesh.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+Rasterizer.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+RendererMASGK.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+SimpleTriangle.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+stdafx.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+Texture.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+TGABuffer.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+Vertex.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+VertexProcesor.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+vfunctions.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
   RendererMASGK.vcxproj -> D:\Studia\masgk\Renderer\RendererMASGK\RendererMASGK\x64\Release\RendererMASGK.exe

@@ -154,6 +154,18 @@ int Max(int v1, int v2, int v3)
 	return std::max(v1, std::max(v2, v3));
 }
 
+float3 max(const float3 & l, const float3 & r)
+{
+	if (l.magnitude() > r.magnitude())
+	{
+		return l;
+	}
+	else
+	{
+		return r;
+	}
+}
+
 float3 crossProduct(const float3 & l, const float3 & r)
 {
 	return float3{

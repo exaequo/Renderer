@@ -132,7 +132,7 @@ void OBJMesh::loadFromFile(const std::string & fileName)
 			i += 4;
 			continue;
 		}
-		if (mtlFileTokens[i] == "map_Kd")
+		if (mtlFileTokens[i] == "map_Kd" || mtlFileTokens[i] == "map_normal")
 		{
 			//currentMat->ColorEmissive() = { stof(mtlFileTokens[i + 1]), stof(mtlFileTokens[i + 2]), stof(mtlFileTokens[i + 3]) };
 			auto vec = divideLine(mtlFileTokens[i+1],'\\');
@@ -142,13 +142,22 @@ void OBJMesh::loadFromFile(const std::string & fileName)
 			{
 				TgaBuffer::loadTexture(vec[vec.size() - 1], texName);
 			}
+			if (mtlFileTokens[i] == "map_normal")
+			{
+				currentMat->setNormal(Data::Instance().getTexture(texName));
+			}
+			else
+			{
+				currentMat->setTexture(Data::Instance().getTexture(texName));
+			}
+
 			
-			currentMat->setTexture(Data::Instance().getTexture(texName));
 			
 			i += 2;
 			continue;
 		}
 
+		
 		++i;
 	}
 	//LOADING TRIANGLES

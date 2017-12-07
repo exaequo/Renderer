@@ -14,42 +14,33 @@ int main()
 	buffer.ClearDepth();
 
 	Rasterizer rasterizer(buffer);
-	VertexProcesor vp{ 90, static_cast<float>(width) / height, 0.3f, 10000.f,
-			{0,0,10}, {0,0,0}, {0,1,0} };
+	VertexProcesor vp{ 30, static_cast<float>(width) / height, 0.3f, 10000.f,
+			{0,0,20}, {0,0,0}, {0,1,0} };
 	
-	Data::Instance().AmbientLight() = { 0.25f, 0.25f, 0.25f };
+	Data::Instance().AmbientLight() = { 0.15f, 0.15f, 0.15f };
 
 	DirectionalLight *light{ new DirectionalLight(&vp,{ 0.1f, -1, -0.1f },{ 1, 1, 1 },{ .1f, .1f, .1f }) };
+	//light->Specular() = { 1, .5f, .5f };
+	/*DirectionalLight *light2{ new DirectionalLight(&vp,{ -0.2f, 1, -0.05f },{ .5f, .5f, .5f },{ .1f, .1f, .1f }) };
+	light2->Specular() = { 0.2f, 1, .5f };*/
 	//DirectionalLight *light{ new DirectionalLight(&vp,{ 0, 0, -1.f },{ 1, 1, 1 },{ .1f, .1f, .1f }) };
 
-	vp.multByTranslation({ -5,0, -10.f });
+	//vp.multByTranslation({ -5,0, -10.f });
 	//vp.multByRotation(90.f, { 0,1,0 });
 		
 	OBJMesh objM2{ "sphereTEX" };
 
-	OBJMesh objM{ "teapotHIGH" };
+	OBJMesh objM{ "torusHIGH" };
 	objM2.draw(rasterizer, vp);
 
-	//vp.multByRotation(-45.f, { 1, 0, 0 });
 	
-	/*std::string texName = "tst";
-	if (!buffer.loadTexture("wall.tga", texName))
-	{
-		std::cout << "Couldn't load tex\n";
-	}*/
+	//vp.multByTranslation({ 5.f,-5,-5 });
+	vp.multByRotation(20.f, { 1,0,0 });
 	
-	/*for (Material *mat : ObjectHolder::Instance().materials)
-	{
-		std::cout << "Mater: " << mat->ColorAmbient() << "\n";
-	}
-	ObjectHolder::Instance().materials[0]->setTexture(ObjectHolder::Instance().getTexture(texName));
-*/
-	//auto *tex = TgaBuffer::getTexture(texName);
-	
-	vp.multByTranslation({ 12.5f,-5,-5 });
-	vp.multByRotation(-25.f, { 0,1,0 });
-	objM.draw(rasterizer, vp);
+	vp.multByTranslation({ -5.f,-5, 0});
+	//vp.multByScale({ 4,4,4 });
 
+	//objM.draw(rasterizer, vp);
 	buffer.save("test.tga");
 
 	std::cin.get();
