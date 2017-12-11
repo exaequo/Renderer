@@ -38,6 +38,9 @@ public:
 	const class Texture* getNormal() const { return normal; }
 	void setNormal(Texture * t) { normal = t; }
 
+	const class Texture* getSpecular() const { return spec; }
+	void setSpecular(Texture * t) { spec = t; }
+
 private:
 	std::string name;
 	float3 colorAmbient;
@@ -56,6 +59,7 @@ private:
 	//std::string textureID;
 	Texture* tex;
 	Texture* normal;
+	Texture* spec;
 
 	int materialID;
 	static int currentMaterialID;

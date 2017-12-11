@@ -31,6 +31,8 @@ struct float3 {
 	float3& operator+=(const float3&);
 	float3& operator*=(const float3&);
 
+	bool operator==(const float3&);
+
 	float& operator[](const int n);
 	const float& operator[](const int n) const;
 	

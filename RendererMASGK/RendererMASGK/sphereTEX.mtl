@@ -14,4 +14,5 @@ newmtl Material__38
 	Ke 0.0000 0.0000 0.0000
 	map_Ka E:\Uzytkownicy\Hubert\MiASGK\Renderer\RendererMASGK\RendererMASGK\wall.tga
 	map_Kd E:\Uzytkownicy\Hubert\MiASGK\Renderer\RendererMASGK\RendererMASGK\wall.tga
-	map_normal E:\Uzytkownicy\Hubert\MiASGK\Renderer\RendererMASGK\RendererMASGK\wallNormal.tga
+	map_normal E:\Uzytkownicy\Hubert\MiASGK\Renderer\RendererMASGK\RendererMASGK\wallNormal2.tga
+	map_Ns E:\Uzytkownicy\Hubert\MiASGK\Renderer\RendererMASGK\RendererMASGK\wallSpec.tga

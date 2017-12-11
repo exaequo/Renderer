@@ -14,7 +14,7 @@ public:
 	virtual void makeNormals();
 
 	virtual Material* getMaterial() { return materials[0]; }
-
+	void setMaterial(Material* mat) { materials[0] = mat; }
 private:
 	std::vector<Material*> materials;
 	std::vector<float3> positions;

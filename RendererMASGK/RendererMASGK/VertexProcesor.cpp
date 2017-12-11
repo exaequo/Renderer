@@ -17,6 +17,18 @@ VertexProcesor::VertexProcesor(float fovy, float aspect, float near, float far,
 	calculateMatrices();
 }
 
+void VertexProcesor::clearTransformations()
+{
+	obj2world = float4x4{
+		float4{ 1,0,0,0 },
+		float4{ 0,1,0,0 },
+		float4{ 0,0,1,0 },
+		float4{ 0,0,0,1 }
+	};
+
+	calculateMatrices();
+}
+
 VertexProcesor::~VertexProcesor()
 {
 
@@ -42,6 +54,7 @@ float3 VertexProcesor::lt(const Vertex & v, const Material& mat) const
 	float3 col{};// = mat.getColorDiffuse();
 	float3 n{ v.getNormal() };
 	float3 tex{ 1,1,1 };
+	float specVal = 1.f;
 
 	if (mat.getTexture())
 	{
@@ -50,38 +63,70 @@ float3 VertexProcesor::lt(const Vertex & v, const Material& mat) const
 
 	if (mat.getNormal())
 	{
-		n *= mat.getNormal()->getColor(v.getTexCoord());
+		float3
+			tn = ((float3)mul(obj2proj, { v.tangent, 0 })).getNormalized(),
+			bn = ((float3)mul(obj2proj, { v.bitangent, 0 })).getNormalized(),
+			nn = ((float3)mul(obj2proj, { v.normal, 0 })).getNormalized();
+			//nn = (crossProduct(tn, bn)).getNormalized();
+		tn = (tn - nn * dotProduct(tn, nn)).getNormalized();
+	
+		float4x4 TBN{
+			{ tn.x, bn.x, nn.x, 0 },
+			{ tn.y, bn.y, nn.y, 0 },
+			{ tn.z, bn.z, nn.z, 0 },
+			{ 0,0,0,1 }
+		};
+
+
+		//TBN = TBN.inverse();
+
+		n = transformNormal((float3)mul(TBN, { mat.getNormal()->getColor(v.getTexCoord()), 0 }));
+		
+		n.z = -n.z;
 	}
 	n.normalize();
+
+	if (mat.getSpecular())
+	{
+		specVal = mat.getSpecular()->getColor(v.getTexCoord()).x;
+	}
 
 	for (auto * light : Data::Instance().getLights())
 	{
 		float3 res{};
 		float3 spec{};
-		float intensity = std::max(dotProduct(n, -1.f * light->getDir()), 0.f);
+		float3 dir = light->getDir();
+		//std::cout << light->getType() <<", " << LightType::Spot << "\n";
+		if (light->getType() == LightType::Point)
+		{
+			dir = - (light->getPos().getNormalized() - v.getPosition());
+			dir.normalize();
+			//std::cout << dir << "\n";
+			//dir = { 1,0,0 };
+		}
+		float intensity = std::max(dotProduct(n, -1.f * dir), 0.f);
+
 
 		if (intensity > 0.f)
 		{
+			
 			float3 eye = v.getPosition().getNormalized();
-			float3 h = (eye - light->getDir()).normalize();
+			float3 h = (eye - dir).normalize();
 
 			float intSpec = std::max(dotProduct(h, n), 0.f);
+			
 			spec = mat.getColorSpecular() * pow(intSpec, mat.getNs());
 			spec *= light->Specular();
 		}
 		float3 diff = tex * mat.getColorDiffuse();
 
-		res = intensity * light->Color() * diff + spec;
+		res = intensity * light->Color() * diff + spec * specVal;
 
 		res.normalizeColor();
 
 		col += res;
 	}
 
-	/*if (mat.getTexture())
-	{
-		col *= mat.getTexture()->getColor(v.getTexCoord());
-	}*/
 	col += Data::Instance().getAmbientLight() * mat.getColorAmbient() * tex;
 
 	col.normalizeColor();
@@ -196,6 +241,8 @@ void VertexProcesor::multByRotation(const float a, const float3 & vec)
 	obj2world = mul(obj2world, m);
 	calculateMatrices();
 }
+
+
 
 float3 VertexProcesor::transformNormal(const float3 & norm) const
 {

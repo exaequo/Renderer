@@ -1,4 +1,10 @@
 #pragma once
+enum LightType {
+	Directional,
+	Spot,
+	Point
+};
+
 class Light
 {
 public:
@@ -10,6 +16,8 @@ public:
 	float3& Color() { return color; }
 	float3& Specular() { return specular; }
 	virtual const float3& getDir() const = 0;
+	virtual const float3& getPos() const = 0;
+	virtual const LightType getType() const = 0;
 protected:
 	float3 position;
 	float3 color;

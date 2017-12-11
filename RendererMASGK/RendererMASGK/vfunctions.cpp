@@ -124,6 +124,11 @@ float3 & float3::operator*=(const float3 &o)
 	return *this;
 }
 
+bool float3::operator==(const float3 &o)
+{
+	return x == o.x && y == o.y && z == o.z;
+}
+
 float & float3::operator[](const int n)
 {
 	if (n < 0 || n > 2) { throw std::exception("out of float3 range"); }

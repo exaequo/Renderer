@@ -20,6 +20,7 @@
 #include "Data.h"
 #include "Light.h"
 #include "DirectionalLight.h"
+#include "PointLight.h"
 #include <stdio.h>
 #include <tchar.h>
 

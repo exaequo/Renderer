@@ -2,7 +2,7 @@
 # File Created: 06.12.2017 15:51:52
 
 newmtl wire_008110135
-	Ns 50
+	Ns 150
 	d 1
 	Tr 0
 	Tf 1 1 1

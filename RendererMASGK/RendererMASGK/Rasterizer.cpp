@@ -9,28 +9,35 @@ Rasterizer::~Rasterizer()
 /** Draws a triangle with vertices of the specified colors*/
 void Rasterizer::Triangle(
 	const VertexProcesor& vp,
-	const float3& p1, const float3& p2, const float3& p3,
+	const float3& pp1, const float3& pp2, const float3& pp3,
 	const float3& tc1, const float3& tc2, const float3& tc3,
 	const float3& n1, const float3& n2, const float3& n3,
 	//const float3& c1, const float3& c2, const float3& c3,
 	Material* mat)
 {
 
-	//std::cout << " *DRAWING TRIANGLE*\n";
-	//std::cout << "P1: " << p1 << "\n";
-	//std::cout << "P2: " << p2 << "\n";
-	//std::cout << "P3: " << p3 << "\n";
-	//screen point positions
-	//float3 c =  mat->getColorDiffuse();
-	float3 c1 = vp.lt({	p1, n1, tc1	}, *mat);
+
+	/*float3 c1 = vp.lt({	p1, n1, tc1	}, *mat);
 	float3 c2 = vp.lt({ p2, n2, tc2 }, *mat);
-	float3 c3 = vp.lt({ p3, n3, tc3 }, *mat);
+	float3 c3 = vp.lt({ p3, n3, tc3 }, *mat);*/
 
-
-	//std::cout << "c1: " << c1
-		//<< ",c2: " << c2
-		//<< ",c3: " << c3 << "\n";
-
+	//calculating tangent and bitangent
+	float3
+		deltaPos1 = pp2 - pp1,
+		deltaPos2 = pp3 - pp1;
+	float3
+		deltaUV1 = tc2 - tc1,
+		deltaUV2 = tc3 - tc1;
+	float r = 1.f / (deltaUV1.x * deltaUV2.y - deltaUV1.y * deltaUV2.x);
+	float3
+		tangent = (deltaPos1 * deltaUV2.y - deltaPos2 * deltaUV1.y) * r,
+		bitangent = (deltaPos2 * deltaUV1.x - deltaPos1 * deltaUV2.x) * r;
+	
+	float3
+		p1 = vp.tr(pp1),
+		p2 = vp.tr(pp2),
+		p3 = vp.tr(pp3);
+	
 	Texture* tex = mat->getTexture();
 
 	int x1 = (p1.x + 1) * buffer.width *.5f,
@@ -87,7 +94,9 @@ void Rasterizer::Triangle(
 					float3 color = vp.lt({
 						d1 * p1 + d2 * p2 + d3 * p3,
 						d1 * n1 + d2 * n2 + d3 * n3,
-						d1 * tc1 + d2 * tc2 + d3 * tc3
+						d1 * tc1 + d2 * tc2 + d3 * tc3,
+						tangent,
+						bitangent
 					}, *mat);
 					//float3 color =c1 * d1 +c2 * d2 + c3 * d3;
 					

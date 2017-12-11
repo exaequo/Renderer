@@ -43,15 +43,23 @@ void SimpleTriangle::draw(Rasterizer & rasterizer, const VertexProcesor & vp) co
 
 void SimpleTriangle::drawInverse(Rasterizer & rasterizer, const VertexProcesor & vp) const
 {
-	Vertex v1 = vp.tr(vertices[0]);
+	/*Vertex v1 = vp.tr(vertices[0]);
 	Vertex v2 = vp.tr(vertices[1]);
 	Vertex v3 = vp.tr(vertices[2]);
-	
+	*/
+	Vertex
+		v1 = vertices[0],
+		v2 = vertices[1],
+		v3 = vertices[2];
 	float3
 		n1 = vp.transformNormal(v1.getNormal()),
 		n2 = vp.transformNormal(v2.getNormal()),
 		n3 = vp.transformNormal(v3.getNormal());
-		
+	//float3
+	//	n1 = v1.getNormal(),
+	//	n2 = v2.getNormal(),
+	//	n3 = v3.getNormal();
+
 	rasterizer.Triangle(
 		vp,
 		v3.getPosition(), v2.getPosition(), v1.getPosition(),

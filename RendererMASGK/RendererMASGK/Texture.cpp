@@ -39,7 +39,8 @@ float3 & Texture::operator[](unsigned int at)
 const float3 & Texture::operator[](unsigned int at) const
 {
 	if (at >= size || at < 0) { //throw std::exception("Texture: array out of bounds"); }
-		return { 0,0,0 };
+		//return { 0,0,0 };
+		return vec[at % size];
 	}
 
 	return vec[at];

@@ -20,6 +20,8 @@ public:
 	void multByScale(const float3& v);
 	void multByRotation(const float a, const float3& v);
 
+	void clearTransformations();
+
 	float3 transformNormal(const float3& norm) const;
 
 	VertexProcesor(float fovy, float aspect, float near, float far, 
