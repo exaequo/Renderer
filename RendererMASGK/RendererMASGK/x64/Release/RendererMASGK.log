@@ -1,8 +1,8 @@
 ﻿  RendererMASGK.cpp
   Trwa generowanie kodu
-  4 of 936 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  15 of 958 functions ( 1.6%) were compiled, the rest were copied from previous compilation.
+    11 functions were new in current compilation
+    27 functions had inline decision re-evaluated but remain unchanged
   Zakończono generowanie kodu
 Light.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
 Material.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
@@ -12,10 +12,12 @@ OBJMesh.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\render
 PointLight.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
 Rasterizer.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
 RendererMASGK.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+Shader.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
 SimpleTriangle.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
 stdafx.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
 Texture.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
 TGABuffer.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
+ToonShader.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
 Vertex.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
 VertexProcesor.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera
 vfunctions.obj : warning LNK4020: rekord typu w elemencie „d:\studia\masgk\renderer\renderermasgk\renderermasgk\x64\release\vc141.pdb” jest uszkodzony; niektóre symbole i typy mogą być niedostępne z debugera

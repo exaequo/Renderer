@@ -96,10 +96,12 @@ float3 VertexProcesor::lt(const Vertex & v, const Material& mat) const
 		float3 res{};
 		float3 spec{};
 		float3 dir = light->getDir();
+		float atten = 1;//Atten = 1 / 
 		//std::cout << light->getType() <<", " << LightType::Spot << "\n";
 		if (light->getType() == LightType::Point)
 		{
-			dir = - (light->getPos().getNormalized() - v.getPosition());
+			//atten = 
+			dir = - (light->getPos().getNormalized() - v.getPosition().getNormalized());
 			dir.normalize();
 			//std::cout << dir << "\n";
 			//dir = { 1,0,0 };
@@ -132,6 +134,25 @@ float3 VertexProcesor::lt(const Vertex & v, const Material& mat) const
 	col.normalizeColor();
 	return col;
 }
+
+Vertex VertexProcesor::shaderTr(const Vertex & v, Shader * shader) const
+{
+	if (shader)
+	{
+		return shader->tr(v, *this);
+	}
+	return tr(v);
+}
+
+float3 VertexProcesor::shaderLt(const Vertex & v, const Material & mat, Shader * shader) const
+{
+	if (shader)
+	{
+		return shader->lt(v, mat, *this);
+	}
+	return lt(v, mat);
+}
+
 
 
 void VertexProcesor::setPerspective(float fovy, float aspect, float near, float far)

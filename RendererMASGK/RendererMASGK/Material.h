@@ -41,6 +41,9 @@ public:
 	const class Texture* getSpecular() const { return spec; }
 	void setSpecular(Texture * t) { spec = t; }
 
+	void setShader(Shader* shader) { shad = shader; }
+	Shader* getShader() { return shad; }
+
 private:
 	std::string name;
 	float3 colorAmbient;
@@ -60,6 +63,8 @@ private:
 	Texture* tex;
 	Texture* normal;
 	Texture* spec;
+
+	class Shader* shad;
 
 	int materialID;
 	static int currentMaterialID;

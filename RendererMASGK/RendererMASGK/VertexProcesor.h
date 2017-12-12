@@ -14,6 +14,9 @@ public:
 	//class Vertex lt(const class Vertex & f) const;
 	float3 lt(const class Vertex& v, const Material& mat) const;
 
+	class Vertex shaderTr(const class Vertex & v, class Shader* shader) const;
+	float3 shaderLt(const class Vertex& v, const Material& mat, class Shader* shader) const;
+
 	void setPerspective(float fovy, float aspect, float near, float far);
 	void setLookat(const float3& eye, const float3& center, const float3& up);
 	void multByTranslation(const float3& v);
@@ -29,5 +32,7 @@ public:
 	~VertexProcesor();
 
 	void calculateMatrices();
+
+	friend class Shader;
 };
 

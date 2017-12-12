@@ -21,6 +21,8 @@
 #include "Light.h"
 #include "DirectionalLight.h"
 #include "PointLight.h"
+#include "Shader.h"
+#include "ToonShader.h"
 #include <stdio.h>
 #include <tchar.h>
 
